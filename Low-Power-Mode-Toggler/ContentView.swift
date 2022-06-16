@@ -11,26 +11,21 @@ struct ContentView: View {
     let task = Process()
     @State var lowPoweModeEnabled = false
     var body: some View {
-        HStack{
-            Text("Low Power Mode")
-                .bold()
-            Spacer()
-            Toggle("", isOn: $lowPoweModeEnabled)
-                .toggleStyle(.switch)
+        VStack{
+            HStack{
+                Text("Low Power Mode")
+                    .bold()
+                Spacer()
+                Toggle("", isOn: $lowPoweModeEnabled)
+                    .toggleStyle(.switch)
+            }
+            Button(action: {lowPoweModeEnabled.toggle()}, label: {Text("pp")})
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){isLowPowerEnabled in
             let valueToPass = isLowPowerEnabled ? 1 : 0
-            
-            task.arguments = ["-c", "sudo pmset -a lowpowermode \(valueToPass)"]
-            task.executableURL = URL(fileURLWithPath: "/bin/zsh")
-            
-            do {
-                try task.run()
-            } catch {
-                print("Error: \(error)")
-                lowPoweModeEnabled.toggle()
-            }
+
+            NSAppleScript(source: "sudo pmset -a lowpowermode \(valueToPass)")!.executeAndReturnError(nil)
         }
     }
 }
