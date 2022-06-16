@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var bruh = false
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+//        Form{
+            Toggle("bruh", isOn: $bruh)
+                .toggleStyle(.switch)
+//        }
     }
 }
 
