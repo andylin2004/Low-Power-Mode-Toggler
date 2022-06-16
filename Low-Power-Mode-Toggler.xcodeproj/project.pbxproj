@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
+		42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445D285AAC4B0041CA4A /* ContentView.swift */; };
+		42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD445F285AAC4D0041CA4A /* Assets.xcassets */; };
+		42FD4463285AAC4D0041CA4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD4462285AAC4D0041CA4A /* Preview Assets.xcassets */; };
+		42FD446E285AAC4D0041CA4A /* Low_Power_Mode_TogglerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD446D285AAC4D0041CA4A /* Low_Power_Mode_TogglerTests.swift */; };
+		42FD4478285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD4477285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITests.swift */; };
+		42FD447A285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD4479285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITestsLaunchTests.swift */; };
+		42FD4488285AB1910041CA4A /* InternalBattery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD4487285AB1910041CA4A /* InternalBattery.swift */; };
+		42FD448A285AB1AD0041CA4A /* InternalFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD4489285AB1AD0041CA4A /* InternalFinder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42FD446A285AAC4D0041CA4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42FD4450285AAC4B0041CA4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42FD4457285AAC4B0041CA4A;
+			remoteInfo = "Low-Power-Mode-Toggler";
+		};
+		42FD4474285AAC4D0041CA4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42FD4450285AAC4B0041CA4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42FD4457285AAC4B0041CA4A;
+			remoteInfo = "Low-Power-Mode-Toggler";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Low-Power-Mode-Toggler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerApp.swift; sourceTree = "<group>"; };
+		42FD445D285AAC4B0041CA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		42FD445F285AAC4D0041CA4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42FD4462285AAC4D0041CA4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		42FD4464285AAC4D0041CA4A /* Low_Power_Mode_Toggler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Low_Power_Mode_Toggler.entitlements; sourceTree = "<group>"; };
+		42FD4469285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Low-Power-Mode-TogglerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FD446D285AAC4D0041CA4A /* Low_Power_Mode_TogglerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerTests.swift; sourceTree = "<group>"; };
+		42FD4473285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Low-Power-Mode-TogglerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FD4477285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerUITests.swift; sourceTree = "<group>"; };
+		42FD4479285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		42FD4487285AB1910041CA4A /* InternalBattery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalBattery.swift; sourceTree = "<group>"; };
+		42FD4489285AB1AD0041CA4A /* InternalFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalFinder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42FD4455285AAC4B0041CA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42FD4466285AAC4D0041CA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42FD4470285AAC4D0041CA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42FD444F285AAC4B0041CA4A = {
+			isa = PBXGroup;
+			children = (
+				42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
+				42FD446C285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
+				42FD4476285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
+				42FD4459285AAC4B0041CA4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42FD4459285AAC4B0041CA4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */,
+				42FD4469285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests.xctest */,
+				42FD4473285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */ = {
+			isa = PBXGroup;
+			children = (
+				42FD4486285AB17E0041CA4A /* BatteryReader */,
+				42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */,
+				42FD445D285AAC4B0041CA4A /* ContentView.swift */,
+				42FD445F285AAC4D0041CA4A /* Assets.xcassets */,
+				42FD4464285AAC4D0041CA4A /* Low_Power_Mode_Toggler.entitlements */,
+				42FD4461285AAC4D0041CA4A /* Preview Content */,
+			);
+			path = "Low-Power-Mode-Toggler";
+			sourceTree = "<group>";
+		};
+		42FD4461285AAC4D0041CA4A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				42FD4462285AAC4D0041CA4A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		42FD446C285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */ = {
+			isa = PBXGroup;
+			children = (
+				42FD446D285AAC4D0041CA4A /* Low_Power_Mode_TogglerTests.swift */,
+			);
+			path = "Low-Power-Mode-TogglerTests";
+			sourceTree = "<group>";
+		};
+		42FD4476285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				42FD4477285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITests.swift */,
+				42FD4479285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITestsLaunchTests.swift */,
+			);
+			path = "Low-Power-Mode-TogglerUITests";
+			sourceTree = "<group>";
+		};
+		42FD4486285AB17E0041CA4A /* BatteryReader */ = {
+			isa = PBXGroup;
+			children = (
+				42FD4487285AB1910041CA4A /* InternalBattery.swift */,
+				42FD4489285AB1AD0041CA4A /* InternalFinder.swift */,
+			);
+			path = BatteryReader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42FD4457285AAC4B0041CA4A /* Low-Power-Mode-Toggler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42FD447D285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-Toggler" */;
+			buildPhases = (
+				42FD4454285AAC4B0041CA4A /* Sources */,
+				42FD4455285AAC4B0041CA4A /* Frameworks */,
+				42FD4456285AAC4B0041CA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Low-Power-Mode-Toggler";
+			productName = "Low-Power-Mode-Toggler";
+			productReference = 42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		42FD4468285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42FD4480285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-TogglerTests" */;
+			buildPhases = (
+				42FD4465285AAC4D0041CA4A /* Sources */,
+				42FD4466285AAC4D0041CA4A /* Frameworks */,
+				42FD4467285AAC4D0041CA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42FD446B285AAC4D0041CA4A /* PBXTargetDependency */,
+			);
+			name = "Low-Power-Mode-TogglerTests";
+			productName = "Low-Power-Mode-TogglerTests";
+			productReference = 42FD4469285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		42FD4472285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42FD4483285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-TogglerUITests" */;
+			buildPhases = (
+				42FD446F285AAC4D0041CA4A /* Sources */,
+				42FD4470285AAC4D0041CA4A /* Frameworks */,
+				42FD4471285AAC4D0041CA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42FD4475285AAC4D0041CA4A /* PBXTargetDependency */,
+			);
+			name = "Low-Power-Mode-TogglerUITests";
+			productName = "Low-Power-Mode-TogglerUITests";
+			productReference = 42FD4473285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42FD4450285AAC4B0041CA4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					42FD4457285AAC4B0041CA4A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					42FD4468285AAC4D0041CA4A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 42FD4457285AAC4B0041CA4A;
+					};
+					42FD4472285AAC4D0041CA4A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 42FD4457285AAC4B0041CA4A;
+					};
+				};
+			};
+			buildConfigurationList = 42FD4453285AAC4B0041CA4A /* Build configuration list for PBXProject "Low-Power-Mode-Toggler" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 42FD444F285AAC4B0041CA4A;
+			productRefGroup = 42FD4459285AAC4B0041CA4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42FD4457285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
+				42FD4468285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
+				42FD4472285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42FD4456285AAC4B0041CA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FD4463285AAC4D0041CA4A /* Preview Assets.xcassets in Resources */,
+				42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42FD4467285AAC4D0041CA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42FD4471285AAC4D0041CA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42FD4454285AAC4B0041CA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FD448A285AB1AD0041CA4A /* InternalFinder.swift in Sources */,
+				42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */,
+				42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */,
+				42FD4488285AB1910041CA4A /* InternalBattery.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42FD4465285AAC4D0041CA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FD446E285AAC4D0041CA4A /* Low_Power_Mode_TogglerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42FD446F285AAC4D0041CA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FD4478285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITests.swift in Sources */,
+				42FD447A285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42FD446B285AAC4D0041CA4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42FD4457285AAC4B0041CA4A /* Low-Power-Mode-Toggler */;
+			targetProxy = 42FD446A285AAC4D0041CA4A /* PBXContainerItemProxy */;
+		};
+		42FD4475285AAC4D0041CA4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42FD4457285AAC4B0041CA4A /* Low-Power-Mode-Toggler */;
+			targetProxy = 42FD4474285AAC4D0041CA4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		42FD447B285AAC4D0041CA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		42FD447C285AAC4D0041CA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		42FD447E285AAC4D0041CA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Low-Power-Mode-Toggler/Low_Power_Mode_Toggler.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		42FD447F285AAC4D0041CA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Low-Power-Mode-Toggler/Low_Power_Mode_Toggler.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		42FD4481285AAC4D0041CA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-TogglerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Low-Power-Mode-Toggler.app/Contents/MacOS/Low-Power-Mode-Toggler";
+			};
+			name = Debug;
+		};
+		42FD4482285AAC4D0041CA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-TogglerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Low-Power-Mode-Toggler.app/Contents/MacOS/Low-Power-Mode-Toggler";
+			};
+			name = Release;
+		};
+		42FD4484285AAC4D0041CA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-TogglerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Low-Power-Mode-Toggler";
+			};
+			name = Debug;
+		};
+		42FD4485285AAC4D0041CA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-TogglerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Low-Power-Mode-Toggler";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42FD4453285AAC4B0041CA4A /* Build configuration list for PBXProject "Low-Power-Mode-Toggler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42FD447B285AAC4D0041CA4A /* Debug */,
+				42FD447C285AAC4D0041CA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42FD447D285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-Toggler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42FD447E285AAC4D0041CA4A /* Debug */,
+				42FD447F285AAC4D0041CA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42FD4480285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-TogglerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42FD4481285AAC4D0041CA4A /* Debug */,
+				42FD4482285AAC4D0041CA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42FD4483285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-TogglerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42FD4484285AAC4D0041CA4A /* Debug */,
+				42FD4485285AAC4D0041CA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42FD4450285AAC4B0041CA4A /* Project object */;
+}
