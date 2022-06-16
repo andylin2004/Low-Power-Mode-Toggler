@@ -49,6 +49,7 @@
 		42FD4479285AAC4D0041CA4A /* Low_Power_Mode_TogglerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		42FD4487285AB1910041CA4A /* InternalBattery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalBattery.swift; sourceTree = "<group>"; };
 		42FD4489285AB1AD0041CA4A /* InternalFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalFinder.swift; sourceTree = "<group>"; };
+		42FD448B285ACB150041CA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 		42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */ = {
 			isa = PBXGroup;
 			children = (
+				42FD448B285ACB150041CA4A /* Info.plist */,
 				42FD4486285AB17E0041CA4A /* BatteryReader */,
 				42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */,
 				42FD445D285AAC4B0041CA4A /* ContentView.swift */,
@@ -438,6 +440,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Low-Power-Mode-Toggler/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,6 +466,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Low-Power-Mode-Toggler/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
