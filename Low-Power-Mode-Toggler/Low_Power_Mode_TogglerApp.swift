@@ -27,16 +27,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let view = NSHostingView(rootView: ContentView())
     let menu = NSMenu()
     let menuItem = NSMenuItem()
-    
+    let attribute = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        
         view.frame = NSRect(x: 0, y: 0, width: 200, height: 200)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         menuItem.view = view
         menu.addItem(menuItem)
         statusItem.menu = menu
         NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        let attribute = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
+        
+        updateBatteryInBar()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"), object: nil)
+    }
+    
+    @objc public func powerSourceUpdate(_: AnyObject){
+        updateBatteryInBar()
+    }
+    
+    func updateBatteryInBar(){
         let internalFinder = InternalFinder();
         if let internalBattery = internalFinder.getInternalBattery(){
             let str = NSAttributedString(string: "\(Int(internalBattery.charge!))%", attributes: attribute)
@@ -46,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             statusItem.button?.attributedTitle = str
         }
     }
+    
     
 //    func application
 }

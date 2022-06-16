@@ -10,10 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State var bruh = false
     var body: some View {
-//        Form{
+        VStack{
             Toggle("bruh", isOn: $bruh)
                 .toggleStyle(.switch)
-//        }
+        }
     }
 }
 
