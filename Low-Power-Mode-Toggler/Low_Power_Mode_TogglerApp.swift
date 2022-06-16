@@ -27,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let view = NSHostingView(rootView: ContentView())
     let menu = NSMenu()
     let menuItem = NSMenuItem()
-    let attribute = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         
@@ -41,23 +40,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         updateBatteryInBar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: NSNotification.Name.NSProcessInfoPowerStateDidChange, object: nil)
     }
     
     @objc public func powerSourceUpdate(_: AnyObject){
-        updateBatteryInBar()
+        DispatchQueue.main.async {
+            self.updateBatteryInBar()
+        }
     }
     
     func updateBatteryInBar(){
         let internalFinder = InternalFinder();
         if let internalBattery = internalFinder.getInternalBattery(){
-            let str = NSAttributedString(string: "\(Int(internalBattery.charge!))%", attributes: attribute)
-            statusItem.button?.attributedTitle = str
+            if ProcessInfo.processInfo.isLowPowerModeEnabled{
+                let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: NSColor.systemYellow]
+                let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
+                statusItem.button?.attributedTitle = str
+            }else{
+                let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
+                let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
+                statusItem.button?.attributedTitle = str
+            }
         }else{
-            let str = NSAttributedString(string: "No Battery", attributes: attribute)
+            let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
+            let str = NSAttributedString(string: "No Battery", attributes: attributes)
             statusItem.button?.attributedTitle = str
         }
     }
-    
-    
-//    func application
 }
