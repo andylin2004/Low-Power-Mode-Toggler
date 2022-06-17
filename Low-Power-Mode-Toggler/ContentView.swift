@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    let task = Process()
     @State var lowPoweModeEnabled = false
     var body: some View {
         VStack{
@@ -23,9 +22,24 @@ struct ContentView: View {
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){isLowPowerEnabled in
-            let valueToPass = isLowPowerEnabled ? 1 : 0
-
-            NSAppleScript(source: "sudo pmset -a lowpowermode \(valueToPass)")!.executeAndReturnError(nil)
+            let task = Process()
+            task.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+            if isLowPowerEnabled{
+                if let script = Bundle.main.path(forResource: "EnableLPM", ofType: "scpt"){
+                    print(script)
+                    task.arguments = [script]
+                }
+            }else{
+                if let script = Bundle.main.path(forResource: "DisableLPM", ofType: "scpt"){
+                    print(script)
+                    task.arguments = [script]
+                }
+            }
+            do{
+                try task.run()
+            }catch{
+                print(error)
+            }
         }
     }
 }
