@@ -11,13 +11,13 @@
 #include "Config.xcconfig"
 
 // The display name for the sample app (for a non-sample app you would not necessarily want to define this here).
-DISPLAY_NAME = Authorization Sample
+DISPLAY_NAME = Low Power Mode Toggler
 
 // The name of the .app bundle created by the build process. Often matches the display name, but does not need to.
-TARGET_NAME = Swift Authorization Sample
+TARGET_NAME = Low Power Mode Toggler
 
 // The directory containing the source code and property lists for the main App.
-TARGET_DIRECTORY = SwiftAuthorizationApp
+TARGET_DIRECTORY = Low-Power-Mode-Toggler
 
 
 // ** There should not be a need to modify anything below this line in this configuration file ** //

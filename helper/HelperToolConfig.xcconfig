@@ -11,7 +11,7 @@
 #include "Config.xcconfig"
 
 // The directory containing the source code and property lists for the helper tool.
-TARGET_DIRECTORY = SwiftAuthorizationHelperTool
+TARGET_DIRECTORY = helper
 
 
 // ** There should not be a need to modify anything below this line in this configuration file ** //

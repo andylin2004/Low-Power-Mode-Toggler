@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		42365901285E7EDB003B8D31 /* InstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365900285E7EDB003B8D31 /* InstallView.swift */; };
+		42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
+		42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
+		42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365906285E94F1003B8D31 /* EmbeddedPropertyList */; };
+		42365909285E9509003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365908285E9509003B8D31 /* EmbeddedPropertyList */; };
+		4236590B285E9523003B8D31 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */; };
+		4236590C285E953F003B8D31 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */; };
 		429B98F4285E258F00CDF739 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B98F3285E258F00CDF739 /* main.swift */; };
 		429B98FA285E263700CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98F9285E263700CDF739 /* Blessed */; };
 		429B98FD285E267000CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FC285E267000CDF739 /* SecureXPC */; };
@@ -69,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		42365900285E7EDB003B8D31 /* InstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallView.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Low-Power-Mode-Toggler/InstallView.swift"; sourceTree = "<group>"; };
+		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperToolLaunchdPropertyList.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Shared/HelperToolLaunchdPropertyList.swift"; sourceTree = "<group>"; };
+		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperToolInfoPropertyList.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Shared/HelperToolInfoPropertyList.swift"; sourceTree = "<group>"; };
 		429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "com.andylin.Low-Power-Mode-Toggler.helper"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429B98F3285E258F00CDF739 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		429B9901285E28C400CDF739 /* LowPowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerController.swift; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 			files = (
 				429B9900285E26B700CDF739 /* SecureXPC in Frameworks */,
 				429B9904285E29F600CDF739 /* Blessed in Frameworks */,
+				42365909285E9509003B8D31 /* EmbeddedPropertyList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +119,7 @@
 			files = (
 				429B98FA285E263700CDF739 /* Blessed in Frameworks */,
 				429B98FD285E267000CDF739 /* SecureXPC in Frameworks */,
+				42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				429B9908285E338C00CDF739 /* Constants.swift */,
+				42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */,
+				4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -261,6 +273,7 @@
 			packageProductDependencies = (
 				429B98FF285E26B700CDF739 /* SecureXPC */,
 				429B9903285E29F600CDF739 /* Blessed */,
+				42365908285E9509003B8D31 /* EmbeddedPropertyList */,
 			);
 			productName = helper;
 			productReference = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */;
@@ -285,6 +298,7 @@
 			packageProductDependencies = (
 				429B98F9285E263700CDF739 /* Blessed */,
 				429B98FC285E267000CDF739 /* SecureXPC */,
+				42365906285E94F1003B8D31 /* EmbeddedPropertyList */,
 			);
 			productName = "Low-Power-Mode-Toggler";
 			productReference = 42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */;
@@ -364,6 +378,7 @@
 			packageReferences = (
 				429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */,
 				429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */,
+				42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */,
 			);
 			productRefGroup = 42FD4459285AAC4B0041CA4A /* Products */;
 			projectDirPath = "";
@@ -479,8 +494,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */,
 				429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */,
 				429B98F4285E258F00CDF739 /* main.swift in Sources */,
+				4236590C285E953F003B8D31 /* HelperToolInfoPropertyList.swift in Sources */,
 				429B9909285E338C00CDF739 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +510,8 @@
 				42FD448A285AB1AD0041CA4A /* InternalFinder.swift in Sources */,
 				42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */,
 				42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */,
+				4236590B285E9523003B8D31 /* HelperToolInfoPropertyList.swift in Sources */,
+				42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */,
 				42365901285E7EDB003B8D31 /* InstallView.swift in Sources */,
 				42FD4488285AB1910041CA4A /* InternalBattery.swift in Sources */,
 			);
@@ -554,7 +573,7 @@
 		429B98F7285E258F00CDF739 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler\n";
+				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				APP_VERSION = 1.0.0;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
@@ -696,6 +715,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				DISPLAY_NAME = "Low Power Mode Toggler";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -709,6 +729,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_DIRECTORY = Shared;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -726,6 +747,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				DISPLAY_NAME = "Low Power Mode Toggler";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -739,6 +761,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_DIRECTORY = Shared;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -863,6 +886,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trilemma-dev/EmbeddedPropertyList.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/trilemma-dev/Blessed.git";
@@ -882,6 +913,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		42365906285E94F1003B8D31 /* EmbeddedPropertyList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;
+			productName = EmbeddedPropertyList;
+		};
+		42365908285E9509003B8D31 /* EmbeddedPropertyList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;
+			productName = EmbeddedPropertyList;
+		};
 		429B98F9285E263700CDF739 /* Blessed */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */;

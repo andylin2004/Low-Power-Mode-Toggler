@@ -13,7 +13,7 @@ struct InstallView: View {
         VStack{
             Button(action: {
                 do{
-                    try LaunchdManager.authorizeAndBless(message: "Do you want to install the sample helper tool?")
+                    try LaunchdManager.authorizeAndBless()
                 } catch AuthorizationError.canceled {
                     
                 } catch {
