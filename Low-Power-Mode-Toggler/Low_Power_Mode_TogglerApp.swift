@@ -8,8 +8,7 @@
 import SwiftUI
 import Foundation
 import IOKit.ps
-import IOKit
-import AppKit
+import SecureXPC
 
 @main
 struct Low_Power_Mode_TogglerApp: App {
@@ -24,11 +23,12 @@ struct Low_Power_Mode_TogglerApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
-    let view = NSHostingView(rootView: ContentView())
     let menu = NSMenu()
     let menuItem = NSMenuItem()
+    let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient))
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 50)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -58,14 +58,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
                 if internalBattery.charge ?? 0 >= 80 {
-                    toggleLowPowerMode(isLowPowerEnabled: false)
+//                    toggleLowPowerMode(isLowPowerEnabled: false)
                 }
             }else{
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
                 if internalBattery.charge ?? 0 <= 20 {
-                    toggleLowPowerMode(isLowPowerEnabled: true)
+//                    toggleLowPowerMode(isLowPowerEnabled: true)
                 }
             }
         }else{
@@ -73,26 +73,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let str = NSAttributedString(string: "No Battery", attributes: attributes)
             statusItem.button?.attributedTitle = str
         }
-    }
-}
-
-func toggleLowPowerMode(isLowPowerEnabled: Bool){
-    let task = Process()
-    task.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-    if isLowPowerEnabled{
-        if let script = Bundle.main.path(forResource: "EnableLPM", ofType: "scpt"){
-            print(script)
-            task.arguments = [script]
-        }
-    }else{
-        if let script = Bundle.main.path(forResource: "DisableLPM", ofType: "scpt"){
-            print(script)
-            task.arguments = [script]
-        }
-    }
-    do{
-        try task.run()
-    }catch{
-        print(error)
     }
 }

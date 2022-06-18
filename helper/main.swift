@@ -18,4 +18,5 @@ if getppid() == 1 {
             NSLog("error: \(error)")
         }
     }
+    server.startAndBlock()
 }

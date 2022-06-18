@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SecureXPC
 
 struct ContentView: View {
     @State var lowPoweModeEnabled = false
+    let xpcClient: XPCClient
+    
     var body: some View {
         VStack{
             HStack{
@@ -21,14 +24,14 @@ struct ContentView: View {
             Button(action: {lowPoweModeEnabled.toggle()}, label: {Text("pp")})
         }
         .padding(.horizontal, 15)
-        .onChange(of: lowPoweModeEnabled){isLowPowerEnabled in
-            toggleLowPowerMode(isLowPowerEnabled: isLowPowerEnabled)
+        .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in
+            xpcClient.sendMessage(lowPoweModeEnabled, to: Constants.changePowerMode, onCompletion: {_ in })
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(xpcClient: .forMachService(named: ""))
     }
 }
