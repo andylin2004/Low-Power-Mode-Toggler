@@ -14,6 +14,8 @@
 		429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9901285E28C400CDF739 /* LowPowerController.swift */; };
 		429B9904285E29F600CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B9903285E29F600CDF739 /* Blessed */; };
 		429B9906285E32E100CDF739 /* helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 429B98F1285E258F00CDF739 /* helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		429B9909285E338C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
+		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
 		42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445D285AAC4B0041CA4A /* ContentView.swift */; };
 		42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD445F285AAC4D0041CA4A /* Assets.xcassets */; };
@@ -68,6 +70,7 @@
 		429B98F1285E258F00CDF739 /* helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helper; sourceTree = BUILT_PRODUCTS_DIR; };
 		429B98F3285E258F00CDF739 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		429B9901285E28C400CDF739 /* LowPowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerController.swift; sourceTree = "<group>"; };
+		429B9908285E338C00CDF739 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Low-Power-Mode-Toggler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerApp.swift; sourceTree = "<group>"; };
 		42FD445D285AAC4B0041CA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,9 +139,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		429B9907285E337E00CDF739 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				429B9908285E338C00CDF739 /* Constants.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		42FD444F285AAC4B0041CA4A = {
 			isa = PBXGroup;
 			children = (
+				429B9907285E337E00CDF739 /* Shared */,
 				42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
 				42FD446C285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
 				42FD4476285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
@@ -373,6 +385,7 @@
 			files = (
 				429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */,
 				429B98F4285E258F00CDF739 /* main.swift in Sources */,
+				429B9909285E338C00CDF739 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429B990A285E3A5C00CDF739 /* Constants.swift in Sources */,
 				42FD448A285AB1AD0041CA4A /* InternalFinder.swift in Sources */,
 				42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */,
 				42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */,

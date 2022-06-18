@@ -10,5 +10,12 @@ import SecureXPC
 
 if getppid() == 1 {
     let server = try XPCServer.forThisBlessedHelperTool()
-    server.registerRoute(<#T##route: XPCRouteWithoutMessageWithoutReply##XPCRouteWithoutMessageWithoutReply#>, handler: <#T##() throws -> Void#>)
+    server.registerRoute(Constants.changePowerMode, handler: LowPowerController.changePowerMode(lowPowerEnabled:))
+    server.setErrorHandler { error in
+        if case .connectionInvalid = error {
+            // this is when client disconnects, which is fine
+        } else {
+            NSLog("error: \(error)")
+        }
+    }
 }
