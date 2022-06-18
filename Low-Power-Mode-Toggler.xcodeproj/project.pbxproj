@@ -75,6 +75,7 @@
 		429B990D285E4BB500CDF739 /* PropertyListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListModifier.swift; sourceTree = "<group>"; };
 		429B9913285E57F400CDF739 /* HelperToolConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HelperToolConfig.xcconfig; sourceTree = "<group>"; };
 		429B9914285E580F00CDF739 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		429B9915285E584100CDF739 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Low-Power-Mode-Toggler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerApp.swift; sourceTree = "<group>"; };
 		42FD445D285AAC4B0041CA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,6 +198,7 @@
 				42FD445F285AAC4D0041CA4A /* Assets.xcassets */,
 				42FD4464285AAC4D0041CA4A /* Low_Power_Mode_Toggler.entitlements */,
 				42FD4461285AAC4D0041CA4A /* Preview Content */,
+				429B9915285E584100CDF739 /* AppConfig.xcconfig */,
 			);
 			path = "Low-Power-Mode-Toggler";
 			sourceTree = "<group>";
@@ -528,10 +530,13 @@
 		429B98F6285E258F00CDF739 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HELPER_TOOL_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER).helper";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -540,10 +545,13 @@
 		429B98F7285E258F00CDF739 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler\n";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HELPER_TOOL_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER).helper";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper\n";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
