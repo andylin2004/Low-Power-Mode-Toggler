@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		429B98F4285E258F00CDF739 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B98F3285E258F00CDF739 /* main.swift */; };
+		429B98FA285E263700CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98F9285E263700CDF739 /* Blessed */; };
+		429B98FD285E267000CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FC285E267000CDF739 /* SecureXPC */; };
+		429B9900285E26B700CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FF285E26B700CDF739 /* SecureXPC */; };
 		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
 		42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445D285AAC4B0041CA4A /* ContentView.swift */; };
 		42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD445F285AAC4D0041CA4A /* Assets.xcassets */; };
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429B9900285E26B700CDF739 /* SecureXPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429B98FA285E263700CDF739 /* Blessed in Frameworks */,
+				429B98FD285E267000CDF739 /* SecureXPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +113,13 @@
 			path = helper;
 			sourceTree = "<group>";
 		};
+		429B98FE285E26B700CDF739 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42FD444F285AAC4B0041CA4A = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +128,7 @@
 				42FD4476285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
 				429B98F2285E258F00CDF739 /* helper */,
 				42FD4459285AAC4B0041CA4A /* Products */,
+				429B98FE285E26B700CDF739 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +207,9 @@
 			dependencies = (
 			);
 			name = helper;
+			packageProductDependencies = (
+				429B98FF285E26B700CDF739 /* SecureXPC */,
+			);
 			productName = helper;
 			productReference = 429B98F1285E258F00CDF739 /* helper */;
 			productType = "com.apple.product-type.tool";
@@ -210,6 +227,10 @@
 			dependencies = (
 			);
 			name = "Low-Power-Mode-Toggler";
+			packageProductDependencies = (
+				429B98F9285E263700CDF739 /* Blessed */,
+				429B98FC285E267000CDF739 /* SecureXPC */,
+			);
 			productName = "Low-Power-Mode-Toggler";
 			productReference = 42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +306,10 @@
 				Base,
 			);
 			mainGroup = 42FD444F285AAC4B0041CA4A;
+			packageReferences = (
+				429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */,
+				429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */,
+			);
 			productRefGroup = 42FD4459285AAC4B0041CA4A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -684,6 +709,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trilemma-dev/Blessed.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+		429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trilemma-dev/SecureXPC.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		429B98F9285E263700CDF739 /* Blessed */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */;
+			productName = Blessed;
+		};
+		429B98FC285E267000CDF739 /* SecureXPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */;
+			productName = SecureXPC;
+		};
+		429B98FF285E26B700CDF739 /* SecureXPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */;
+			productName = SecureXPC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42FD4450285AAC4B0041CA4A /* Project object */;
 }
