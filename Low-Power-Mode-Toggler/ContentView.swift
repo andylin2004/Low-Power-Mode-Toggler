@@ -7,10 +7,11 @@
 
 import SwiftUI
 import SecureXPC
+import Blessed
 
 struct ContentView: View {
     @State var lowPoweModeEnabled = false
-    let xpcClient: XPCClient
+    let xpcClient: XPCClient!
     
     var body: some View {
         VStack{
@@ -22,6 +23,17 @@ struct ContentView: View {
                     .toggleStyle(.switch)
             }
             Button(action: {lowPoweModeEnabled.toggle()}, label: {Text("pp")})
+            Button(action: {
+                do{
+                    try LaunchdManager.authorizeAndBless(message: "Do you want to install the sample helper tool?")
+                } catch AuthorizationError.canceled {
+                    
+                } catch {
+                    print(error)
+                }
+            }){
+                Text("eeee")
+            }
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in

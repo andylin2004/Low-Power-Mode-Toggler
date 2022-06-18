@@ -559,7 +559,7 @@
 				INFOPLIST_FILE = "$(TARGET_DIRECTORY)/Info.plist";
 				LAUNCHDPLIST_FILE = "$(TARGET_DIRECTORY)/launchd.plist";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper\n";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SHARED_DIRECTORY = Shared;
 				SWIFT_VERSION = 5.0;
@@ -692,6 +692,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				HELPER_TOOL_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper\n";
@@ -721,6 +722,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				HELPER_TOOL_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper\n";

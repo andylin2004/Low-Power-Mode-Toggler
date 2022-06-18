@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient))
         
-        view.frame = NSRect(x: 0, y: 0, width: 250, height: 50)
+        view.frame = NSRect(x: 0, y: 0, width: 250, height: 200)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         menuItem.view = view
         menu.addItem(menuItem)
