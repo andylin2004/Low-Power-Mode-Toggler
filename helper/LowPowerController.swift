@@ -25,7 +25,7 @@ struct LowPowerController{
                 throw AllowedCommandError.authorizationFailed
             }
             let process = Process()
-            process.executableURL = URL(filePath: "/usr/bin/pmset")
+            process.executableURL = URL("/usr/bin/pmset")
             process.arguments = ["-a", "lowpowermode", lowPowerEnabled ? "1" : "0"]
             process.launch()
             process.waitUntilExit()

@@ -15,8 +15,11 @@ struct Low_Power_Mode_TogglerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     var body: some Scene {
-        Settings {
-            EmptyView()
+//        Settings {
+//            EmptyView()
+//        }
+        WindowGroup{
+            InstallView()
         }
     }
 }
