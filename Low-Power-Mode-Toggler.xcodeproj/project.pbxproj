@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		429B98F4285E258F00CDF739 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B98F3285E258F00CDF739 /* main.swift */; };
 		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
 		42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445D285AAC4B0041CA4A /* ContentView.swift */; };
 		42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD445F285AAC4D0041CA4A /* Assets.xcassets */; };
@@ -35,7 +36,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		429B98EF285E258F00CDF739 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		429B98F1285E258F00CDF739 /* helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helper; sourceTree = BUILT_PRODUCTS_DIR; };
+		429B98F3285E258F00CDF739 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Low-Power-Mode-Toggler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerApp.swift; sourceTree = "<group>"; };
 		42FD445D285AAC4B0041CA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +68,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		429B98EE285E258F00CDF739 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42FD4455285AAC4B0041CA4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,12 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		429B98F2285E258F00CDF739 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				429B98F3285E258F00CDF739 /* main.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
 		42FD444F285AAC4B0041CA4A = {
 			isa = PBXGroup;
 			children = (
 				42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
 				42FD446C285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
 				42FD4476285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
+				429B98F2285E258F00CDF739 /* helper */,
 				42FD4459285AAC4B0041CA4A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +124,7 @@
 				42FD4458285AAC4B0041CA4A /* Low-Power-Mode-Toggler.app */,
 				42FD4469285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests.xctest */,
 				42FD4473285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests.xctest */,
+				429B98F1285E258F00CDF739 /* helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +180,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		429B98F0285E258F00CDF739 /* helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "helper" */;
+			buildPhases = (
+				429B98ED285E258F00CDF739 /* Sources */,
+				429B98EE285E258F00CDF739 /* Frameworks */,
+				429B98EF285E258F00CDF739 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = helper;
+			productName = helper;
+			productReference = 429B98F1285E258F00CDF739 /* helper */;
+			productType = "com.apple.product-type.tool";
+		};
 		42FD4457285AAC4B0041CA4A /* Low-Power-Mode-Toggler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42FD447D285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low-Power-Mode-Toggler" */;
@@ -211,6 +260,9 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					429B98F0285E258F00CDF739 = {
+						CreatedOnToolsVersion = 14.0;
+					};
 					42FD4457285AAC4B0041CA4A = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -240,6 +292,7 @@
 				42FD4457285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
 				42FD4468285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
 				42FD4472285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
+				429B98F0285E258F00CDF739 /* helper */,
 			);
 		};
 /* End PBXProject section */
@@ -271,6 +324,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		429B98ED285E258F00CDF739 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				429B98F4285E258F00CDF739 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42FD4454285AAC4B0041CA4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,6 +376,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		429B98F6285E258F00CDF739 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		429B98F7285E258F00CDF739 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		42FD447B285AAC4D0041CA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -553,6 +638,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				429B98F6285E258F00CDF739 /* Debug */,
+				429B98F7285E258F00CDF739 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		42FD4453285AAC4B0041CA4A /* Build configuration list for PBXProject "Low-Power-Mode-Toggler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
