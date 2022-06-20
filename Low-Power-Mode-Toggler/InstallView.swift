@@ -10,8 +10,8 @@ import Blessed
 
 struct InstallView: View {
     var body: some View {
-        VStack{
-            Button(action: {
+        EmptyView()
+            .onAppear{
                 do{
                     try LaunchdManager.authorizeAndBless()
                 } catch AuthorizationError.canceled {
@@ -19,10 +19,7 @@ struct InstallView: View {
                 } catch {
                     print(error)
                 }
-            }){
-                Text("eeee")
             }
-        }
     }
 }
 

@@ -20,6 +20,7 @@ struct Low_Power_Mode_TogglerApp: App {
 //        }
         WindowGroup{
             InstallView()
+                .frame(width: 0, height: 0)
         }
     }
 }
