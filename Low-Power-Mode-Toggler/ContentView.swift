@@ -34,6 +34,11 @@ struct ContentView: View {
             }){
                 Text("eeee")
             }
+            Button(action: {
+                NSApplication.shared.terminate(self)
+            }){
+                Text("Quit")
+            }
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in
