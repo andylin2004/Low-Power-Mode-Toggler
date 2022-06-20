@@ -74,8 +74,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperToolLaunchdPropertyList.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Shared/HelperToolLaunchdPropertyList.swift"; sourceTree = "<group>"; };
-		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperToolInfoPropertyList.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Shared/HelperToolInfoPropertyList.swift"; sourceTree = "<group>"; };
+		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolLaunchdPropertyList.swift; sourceTree = "<group>"; };
+		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolInfoPropertyList.swift; sourceTree = "<group>"; };
 		4236AE972860EF5C00D927C8 /* InstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallView.swift; sourceTree = "<group>"; };
 		429B98F1285E258F00CDF739 /* Low Power Mode Toggler Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Low Power Mode Toggler Helper"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429B98F3285E258F00CDF739 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
