@@ -26,7 +26,8 @@ struct ContentView: View {
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in
-            xpcClient.sendMessage(lowPoweModeEnabled, to: Constants.changePowerMode, onCompletion: {_ in })
+//            xpcClient.sendMessage(lowPoweModeEnabled, to: Constants.changePowerMode, onCompletion: {_ in })
+            xpcClient.sendMessage(lowPoweModeEnabled, to: Constants.changePowerMode, withResponse: displayAllowedCommandResponse(_:))
         }
     }
 }
@@ -34,5 +35,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(xpcClient: .forMachService(named: ""))
+    }
+}
+
+private func displayAllowedCommandResponse(_ result: Result<String, XPCError>) {
+    DispatchQueue.main.async {
+        print(result)
     }
 }
