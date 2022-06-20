@@ -23,22 +23,6 @@ struct ContentView: View {
                     .toggleStyle(.switch)
             }
             Button(action: {lowPoweModeEnabled.toggle()}, label: {Text("pp")})
-            Button(action: {
-                do{
-                    try LaunchdManager.authorizeAndBless()
-                } catch AuthorizationError.canceled {
-                    
-                } catch {
-                    print(error)
-                }
-            }){
-                Text("eeee")
-            }
-            Button(action: {
-                NSApplication.shared.terminate(self)
-            }){
-                Text("Quit")
-            }
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in

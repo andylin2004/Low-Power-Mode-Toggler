@@ -29,15 +29,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     let menu = NSMenu()
     let menuItem = NSMenuItem()
+    let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient))
         
-        view.frame = NSRect(x: 0, y: 0, width: 250, height: 200)
+        view.frame = NSRect(x: 0, y: 0, width: 250, height: 60)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         menuItem.view = view
+        quitButton.title = "Quit"
+        quitButton.action = #selector(quitApp(_:))
         menu.addItem(menuItem)
+        menu.addItem(quitButton)
         statusItem.menu = menu
         NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
@@ -52,6 +56,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         DispatchQueue.main.async {
             self.updateBatteryInBar()
         }
+    }
+    
+    @objc public func quitApp(_: AnyObject){
+        NSApplication.shared.terminate(self)
     }
     
     func updateBatteryInBar(){
