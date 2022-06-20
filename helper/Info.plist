@@ -4,8 +4,6 @@
 <dict>
 	<key>BuildHash</key>
 	<string>e52e5eaa0c3cc0d57e6a4144380e6901fe5d7a645e04d0a124692d74c565f898</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.andylin.Low-Power-Mode-Toggler.helper</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleVersion</key>
