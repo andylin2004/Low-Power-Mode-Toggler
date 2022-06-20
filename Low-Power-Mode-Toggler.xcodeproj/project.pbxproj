@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42365901285E7EDB003B8D31 /* InstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365900285E7EDB003B8D31 /* InstallView.swift */; };
 		42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365906285E94F1003B8D31 /* EmbeddedPropertyList */; };
 		42365909285E9509003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365908285E9509003B8D31 /* EmbeddedPropertyList */; };
 		4236590B285E9523003B8D31 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */; };
 		4236590C285E953F003B8D31 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */; };
+		4236AE982860EF5C00D927C8 /* InstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236AE972860EF5C00D927C8 /* InstallView.swift */; };
 		429B98F4285E258F00CDF739 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B98F3285E258F00CDF739 /* main.swift */; };
 		429B98FA285E263700CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98F9285E263700CDF739 /* Blessed */; };
 		429B98FD285E267000CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FC285E267000CDF739 /* SecureXPC */; };
 		429B9900285E26B700CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FF285E26B700CDF739 /* SecureXPC */; };
 		429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9901285E28C400CDF739 /* LowPowerController.swift */; };
 		429B9904285E29F600CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B9903285E29F600CDF739 /* Blessed */; };
-		429B9906285E32E100CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		429B9906285E32E100CDF739 /* Low Power Mode Toggler Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 429B98F1285E258F00CDF739 /* Low Power Mode Toggler Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		429B9909285E338C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
@@ -67,17 +67,17 @@
 			dstPath = Contents/Library/LaunchServices;
 			dstSubfolderSpec = 1;
 			files = (
-				429B9906285E32E100CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper in CopyFiles */,
+				429B9906285E32E100CDF739 /* Low Power Mode Toggler Helper in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		42365900285E7EDB003B8D31 /* InstallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallView.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Low-Power-Mode-Toggler/InstallView.swift"; sourceTree = "<group>"; };
 		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperToolLaunchdPropertyList.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Shared/HelperToolLaunchdPropertyList.swift"; sourceTree = "<group>"; };
 		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperToolInfoPropertyList.swift; path = "../../../../../../../Macintosh HD/Users/andylin/Documents/App Development/Low-Power-Mode-Toggler/Shared/HelperToolInfoPropertyList.swift"; sourceTree = "<group>"; };
-		429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "com.andylin.Low-Power-Mode-Toggler.helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4236AE972860EF5C00D927C8 /* InstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallView.swift; sourceTree = "<group>"; };
+		429B98F1285E258F00CDF739 /* Low Power Mode Toggler Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Low Power Mode Toggler Helper"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429B98F3285E258F00CDF739 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		429B9901285E28C400CDF739 /* LowPowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerController.swift; sourceTree = "<group>"; };
 		429B9908285E338C00CDF739 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				42FD4458285AAC4B0041CA4A /* Low Power Mode Toggler.app */,
 				42FD4469285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests.xctest */,
 				42FD4473285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests.xctest */,
-				429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */,
+				429B98F1285E258F00CDF739 /* Low Power Mode Toggler Helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +205,7 @@
 		42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */ = {
 			isa = PBXGroup;
 			children = (
+				4236AE972860EF5C00D927C8 /* InstallView.swift */,
 				42FD448B285ACB150041CA4A /* Info.plist */,
 				42FD4486285AB17E0041CA4A /* BatteryReader */,
 				42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */,
@@ -213,7 +214,6 @@
 				42FD4464285AAC4D0041CA4A /* Low_Power_Mode_Toggler.entitlements */,
 				42FD4461285AAC4D0041CA4A /* Preview Content */,
 				429B9915285E584100CDF739 /* AppConfig.xcconfig */,
-				42365900285E7EDB003B8D31 /* InstallView.swift */,
 			);
 			path = "Low-Power-Mode-Toggler";
 			sourceTree = "<group>";
@@ -255,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		429B98F0285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */ = {
+		429B98F0285E258F00CDF739 /* Low Power Mode Toggler Helper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "com.andylin.Low-Power-Mode-Toggler.helper" */;
+			buildConfigurationList = 429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "Low Power Mode Toggler Helper" */;
 			buildPhases = (
 				429B9910285E566A00CDF739 /* ShellScript */,
 				429B98ED285E258F00CDF739 /* Sources */,
@@ -269,14 +269,14 @@
 			);
 			dependencies = (
 			);
-			name = "com.andylin.Low-Power-Mode-Toggler.helper";
+			name = "Low Power Mode Toggler Helper";
 			packageProductDependencies = (
 				429B98FF285E26B700CDF739 /* SecureXPC */,
 				429B9903285E29F600CDF739 /* Blessed */,
 				42365908285E9509003B8D31 /* EmbeddedPropertyList */,
 			);
 			productName = helper;
-			productReference = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */;
+			productReference = 429B98F1285E258F00CDF739 /* Low Power Mode Toggler Helper */;
 			productType = "com.apple.product-type.tool";
 		};
 		42FD4457285AAC4B0041CA4A /* Low Power Mode Toggler */ = {
@@ -387,7 +387,7 @@
 				42FD4457285AAC4B0041CA4A /* Low Power Mode Toggler */,
 				42FD4468285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
 				42FD4472285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
-				429B98F0285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */,
+				429B98F0285E258F00CDF739 /* Low Power Mode Toggler Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -512,7 +512,7 @@
 				42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */,
 				4236590B285E9523003B8D31 /* HelperToolInfoPropertyList.swift in Sources */,
 				42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */,
-				42365901285E7EDB003B8D31 /* InstallView.swift in Sources */,
+				4236AE982860EF5C00D927C8 /* InstallView.swift in Sources */,
 				42FD4488285AB1910041CA4A /* InternalBattery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,7 +858,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "com.andylin.Low-Power-Mode-Toggler.helper" */ = {
+		429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "Low Power Mode Toggler Helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				429B98F6285E258F00CDF739 /* Debug */,
