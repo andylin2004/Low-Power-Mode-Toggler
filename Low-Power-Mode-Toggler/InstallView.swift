@@ -12,13 +12,7 @@ struct InstallView: View {
     var body: some View {
         EmptyView()
             .onAppear{
-                do{
-                    try LaunchdManager.authorizeAndBless()
-                } catch AuthorizationError.canceled {
-                    
-                } catch {
-                    print(error)
-                }
+                
             }
     }
 }

@@ -16,12 +16,8 @@ struct Low_Power_Mode_TogglerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     var body: some Scene {
-//        Settings {
-//            EmptyView()
-//        }
-        WindowGroup{
-            InstallView()
-                .frame(width: 0, height: 0)
+        Settings {
+            EmptyView()
         }
     }
 }
@@ -36,6 +32,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        do{
+            try LaunchdManager.authorizeAndBless()
+        } catch AuthorizationError.canceled {
+            
+        } catch {
+            print(error)
+        }
+        
         let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient, authorization: authorization))
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 60)
