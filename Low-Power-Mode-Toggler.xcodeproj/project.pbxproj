@@ -920,7 +920,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/trilemma-dev/Blessed.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = versionRange;
+				maximumVersion = 0.6.0;
 				minimumVersion = 0.4.0;
 			};
 		};
