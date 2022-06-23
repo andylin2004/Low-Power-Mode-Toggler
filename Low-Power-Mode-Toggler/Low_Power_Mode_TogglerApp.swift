@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 import IOKit.ps
 import SecureXPC
+import Blessed
 
 @main
 struct Low_Power_Mode_TogglerApp: App {
@@ -27,17 +28,25 @@ struct Low_Power_Mode_TogglerApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
+    var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     let menu = NSMenu()
     let menuItem = NSMenuItem()
     let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
+    var authorization: Authorization?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient))
+        let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient, authorization: authorization))
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 60)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        menuItem.view = view
+        if #available(macOS 13.0, *) {
+            menuItem.view = view
+        } else {
+            menuItem.state = isLowPowerEnabled ? .on : .off
+            menuItem.title = "Low Power Mode"
+            menuItem.action = #selector(togglePowerModeSelector(_:))
+        }
         quitButton.title = "Quit"
         quitButton.action = #selector(quitApp(_:))
         menu.addItem(menuItem)
@@ -65,6 +74,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func updateBatteryInBar(){
         let internalFinder = InternalFinder();
         if let internalBattery = internalFinder.getInternalBattery(){
+            isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+            menuItem.state = isLowPowerEnabled ? .on : .off
             if ProcessInfo.processInfo.isLowPowerModeEnabled{
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: NSColor.systemYellow]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
@@ -85,5 +96,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let str = NSAttributedString(string: "No Battery", attributes: attributes)
             statusItem.button?.attributedTitle = str
         }
+    }
+    
+    func changePowerMode(){
+        do{
+            authorization = try Authorization()
+            let msg = LowPowerModeUpdate(lowPowerEnabled: isLowPowerEnabled, authorization: authorization!)
+            xpcClient.sendMessage(msg, to: Constants.changePowerMode, onCompletion: {_ in
+            })
+        }catch{
+            print(error)
+            return
+        }
+    }
+    
+    
+    @objc public func togglePowerModeSelector(_: AnyObject){
+        isLowPowerEnabled.toggle()
+        changePowerMode()
     }
 }
