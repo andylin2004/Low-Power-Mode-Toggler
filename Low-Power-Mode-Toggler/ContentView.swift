@@ -8,6 +8,7 @@
 import SwiftUI
 import SecureXPC
 import Blessed
+import Authorized
 
 struct ContentView: View {
     @State var lowPowerModeEnabled = false

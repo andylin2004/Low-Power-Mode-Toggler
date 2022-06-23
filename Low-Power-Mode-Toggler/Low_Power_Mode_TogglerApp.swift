@@ -10,6 +10,7 @@ import Foundation
 import IOKit.ps
 import SecureXPC
 import Blessed
+import Authorized
 
 @main
 struct Low_Power_Mode_TogglerApp: App {

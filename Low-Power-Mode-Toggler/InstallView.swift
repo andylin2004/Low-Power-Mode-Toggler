@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Blessed
+import Authorized
 
 struct InstallView: View {
     var body: some View {

@@ -7,6 +7,7 @@
 
 import Foundation
 import Blessed
+import Authorized
 
 enum AllowedCommandError: Error {
     case authorizationMissing

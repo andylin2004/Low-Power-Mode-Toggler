@@ -4,5 +4,10 @@
 <dict>
 	<key>LSUIElement</key>
 	<true/>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.andylin.Low-Power-Mode-Toggler.helper</key>
+		<string>anchor apple generic and identifier "com.andylin.Low-Power-Mode-Toggler.helper" and certificate leaf[subject.OU] = "QW3PB89WQ9"</string>
+	</dict>
 </dict>
 </plist>

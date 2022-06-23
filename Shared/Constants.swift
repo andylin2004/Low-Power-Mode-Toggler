@@ -7,14 +7,14 @@
 
 import Foundation
 import SecureXPC
-import Blessed
+import Authorized
 
 struct Constants {
     static let changePowerMode = XPCRoute.named("changePowerMode")
         .withMessageType(LowPowerModeUpdate.self)
 }
 
-struct LowPowerModeUpdate: Codable {
+struct LowPowerModeUpdate: Encodable, Decodable {
     let lowPowerEnabled: Bool
     let authorization: Authorization
 }
