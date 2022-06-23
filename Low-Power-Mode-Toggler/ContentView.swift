@@ -10,7 +10,7 @@ import SecureXPC
 import Blessed
 
 struct ContentView: View {
-    @State var lowPoweModeEnabled = false
+    @State var lowPowerModeEnabled = false
     let xpcClient: XPCClient!
     @State var authorization: Authorization?
     
@@ -20,21 +20,24 @@ struct ContentView: View {
                 Text("Low Power Mode")
                     .bold()
                 Spacer()
-                Toggle("", isOn: $lowPoweModeEnabled)
+                Toggle("", isOn: $lowPowerModeEnabled)
                     .toggleStyle(.switch)
             }
-            Button(action: {lowPoweModeEnabled.toggle()}, label: {Text("pp")})
+            Button(action: {lowPowerModeEnabled.toggle()}, label: {Text("pp")})
         }
         .padding(.horizontal, 15)
-        .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in
+        .onChange(of: lowPowerModeEnabled){ isLowPowerEnabled in
             do{
                 authorization = try Authorization()
                 let msg = LowPowerModeUpdate(lowPowerEnabled: isLowPowerEnabled, authorization: authorization!)
-                xpcClient.sendMessage(msg, to: Constants.changePowerMode)
+                xpcClient.sendMessage(msg, to: Constants.changePowerMode, onCompletion: {_ in})
             }catch{
                 print(error)
                 return
             }
+        }
+        .onAppear{
+            lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
         }
     }
 }
