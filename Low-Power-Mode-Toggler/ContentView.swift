@@ -12,6 +12,7 @@ import Blessed
 struct ContentView: View {
     @State var lowPoweModeEnabled = false
     let xpcClient: XPCClient!
+    @State var authorization: Authorization?
     
     var body: some View {
         VStack{
@@ -26,8 +27,14 @@ struct ContentView: View {
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPoweModeEnabled){ isLowPowerEnabled in
-//            xpcClient.sendMessage(lowPoweModeEnabled, to: Constants.changePowerMode, onCompletion: {_ in })
-            xpcClient.sendMessage(lowPoweModeEnabled, to: Constants.changePowerMode, withResponse: displayAllowedCommandResponse(_:))
+            do{
+                authorization = try Authorization()
+                let msg = LowPowerModeUpdate(lowPowerEnabled: isLowPowerEnabled, authorization: authorization!)
+                xpcClient.sendMessage(msg, to: Constants.changePowerMode, withResponse: displayAllowedCommandResponse(_:))
+            }catch{
+                print(error)
+                return
+            }
         }
     }
 }

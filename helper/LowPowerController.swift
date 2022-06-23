@@ -18,15 +18,15 @@ struct LowPowerController{
     
     static let authorizationRight = AuthorizationRight(name: "com.andylin.Low-Power-Mode-Toggler.switch-action")
     
-    static func changePowerMode(lowPowerEnabled: Bool) throws -> String {
+    static func changePowerMode(lowPowerUpdate: LowPowerModeUpdate) throws -> String {
         do{
-            let rights = try Authorization().requestRights([authorizationRight], environment: [], options: [.preAuthorize])
+            let rights = try lowPowerUpdate.authorization.requestRights([authorizationRight], environment: [], options: [.preAuthorize])
             if !rights.contains(where: { $0.name == authorizationRight.name }) {
                 throw AllowedCommandError.authorizationFailed
             }
             let process = Process()
             process.executableURL = URL("/usr/bin/pmset")
-            process.arguments = ["-a", "lowpowermode", lowPowerEnabled ? "1" : "0"]
+            process.arguments = ["-a", "lowpowermode", lowPowerUpdate.lowPowerEnabled ? "1" : "0"]
             process.qualityOfService = .userInitiated
             let stdout = Pipe()
             process.standardOutput = stdout
@@ -51,6 +51,7 @@ struct LowPowerController{
             stdout.fileHandleForReading.closeFile()
             stderr.fileHandleForReading.closeFile()
             
+            NSLog("out: \(standardOutput) err: \(standardError)")
             return standardOutput ?? ""
         }catch{
             throw AllowedCommandError.authorizationMissing
