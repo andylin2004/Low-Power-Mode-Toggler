@@ -30,7 +30,7 @@ struct ContentView: View {
             do{
                 authorization = try Authorization()
                 let msg = LowPowerModeUpdate(lowPowerEnabled: isLowPowerEnabled, authorization: authorization!)
-                xpcClient.sendMessage(msg, to: Constants.changePowerMode, withResponse: displayAllowedCommandResponse(_:))
+                xpcClient.sendMessage(msg, to: Constants.changePowerMode)
             }catch{
                 print(error)
                 return
@@ -42,11 +42,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(xpcClient: .forMachService(named: ""))
-    }
-}
-
-private func displayAllowedCommandResponse(_ result: Result<String, XPCError>) {
-    DispatchQueue.main.async {
-        print(result)
     }
 }

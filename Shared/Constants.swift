@@ -12,7 +12,6 @@ import Blessed
 struct Constants {
     static let changePowerMode = XPCRoute.named("changePowerMode")
         .withMessageType(LowPowerModeUpdate.self)
-        .withReplyType(String.self)
 }
 
 struct LowPowerModeUpdate: Codable {

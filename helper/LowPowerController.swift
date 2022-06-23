@@ -18,9 +18,9 @@ struct LowPowerController{
     
     static let authorizationRight = AuthorizationRight(name: "com.andylin.Low-Power-Mode-Toggler.switch-action")
     
-    static func changePowerMode(lowPowerUpdate: LowPowerModeUpdate) throws -> String {
+    static func changePowerMode(lowPowerUpdate: LowPowerModeUpdate) throws {
         do{
-            let rights = try lowPowerUpdate.authorization.requestRights([authorizationRight], environment: [], options: [.preAuthorize])
+            let rights = try lowPowerUpdate.authorization.requestRights([authorizationRight], environment: [], options: [.preAuthorize, .extendRights])
             if !rights.contains(where: { $0.name == authorizationRight.name }) {
                 throw AllowedCommandError.authorizationFailed
             }
@@ -34,25 +34,6 @@ struct LowPowerController{
             process.standardError = stderr
             process.launch()
             process.waitUntilExit()
-            
-            let terminationStatus = Int64(process.terminationStatus)
-            var standardOutput: String?
-            var standardError: String?
-            if let output = String(data: stdout.fileHandleForReading.availableData,
-                                   encoding: String.Encoding.utf8)?.trimmingCharacters(in: .whitespacesAndNewlines),
-               output.count != 0 {
-                standardOutput = output
-            }
-            if let error = String(data: stderr.fileHandleForReading.availableData,
-                                  encoding: String.Encoding.utf8)?.trimmingCharacters(in: .whitespacesAndNewlines),
-               error.count != 0 {
-                standardError = error
-            }
-            stdout.fileHandleForReading.closeFile()
-            stderr.fileHandleForReading.closeFile()
-            
-            NSLog("out: \(standardOutput) err: \(standardError)")
-            return standardOutput ?? ""
         }catch{
             throw AllowedCommandError.authorizationMissing
         }
