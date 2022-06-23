@@ -29,11 +29,11 @@ struct Low_Power_Mode_TogglerApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+    var authorization: Authorization?
     let menu = NSMenu()
     let menuItem = NSMenuItem()
     let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
-    var authorization: Authorization?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient, authorization: authorization))
@@ -59,16 +59,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: NSNotification.Name.NSProcessInfoPowerStateDidChange, object: nil)
-    }
-    
-    @objc public func powerSourceUpdate(_: AnyObject){
-        DispatchQueue.main.async {
-            self.updateBatteryInBar()
-        }
-    }
-    
-    @objc public func quitApp(_: AnyObject){
-        NSApplication.shared.terminate(self)
     }
     
     func updateBatteryInBar(){
@@ -114,5 +104,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc public func togglePowerModeSelector(_: AnyObject){
         isLowPowerEnabled.toggle()
         changePowerMode()
+    }
+    
+    @objc public func powerSourceUpdate(_: AnyObject){
+        DispatchQueue.main.async {
+            self.updateBatteryInBar()
+        }
+    }
+    
+    @objc public func quitApp(_: AnyObject){
+        NSApplication.shared.terminate(self)
     }
 }
