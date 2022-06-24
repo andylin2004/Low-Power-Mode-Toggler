@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        if #available(macOS 14.0, *) {
+        if #available(macOS 13.0, *) {
             menuItem.view = view
         } else {
             menuItem.state = isLowPowerEnabled ? .on : .off
