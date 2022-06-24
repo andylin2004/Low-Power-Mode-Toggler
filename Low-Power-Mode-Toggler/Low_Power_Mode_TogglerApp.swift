@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import UserNotifications
 import IOKit.ps
 import SecureXPC
 import Blessed
@@ -30,6 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let menuItem = NSMenuItem()
     let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
+    let notifCenter = UNUserNotificationCenter.current()
+    let lowPowerModeNotification = UNMutableNotificationContent()
+    let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+    let notifId = "lowPoweModeNotif"
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         do{
@@ -39,6 +44,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } catch {
             print(error)
         }
+        
+        notifCenter.requestAuthorization(options: [.alert, .badge], completionHandler: { granted, error in
+            if let error = error{
+                print(error)
+            }else if granted{
+                self.lowPowerModeNotification.title = "Low Battery"
+                self.lowPowerModeNotification.body = "20% battery remaining. You may enable Low Power Mode to extend your battery life."
+            }
+        })
         
         let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient, authorization: authorization))
         
@@ -75,14 +89,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
                 if internalBattery.charge ?? 0 >= 80 {
-//                    toggleLowPowerMode(isLowPowerEnabled: false)
+                    
                 }
             }else{
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
-                if internalBattery.charge ?? 0 <= 20 {
-//                    toggleLowPowerMode(isLowPowerEnabled: true)
+                if internalBattery.charge ?? 0 == 20 {
+                    notifCenter.getNotificationSettings(completionHandler: {(settings) in
+                        if settings.authorizationStatus == .authorized{
+                            let request = UNNotificationRequest(identifier: self.notifId, content: self.lowPowerModeNotification, trigger: self.notifTrigger)
+                            self.notifCenter.add(request){(error) in
+                                if let error = error {
+                                    print(error)
+                                }
+                            }
+                        }
+                    })
                 }
             }
         }else{
