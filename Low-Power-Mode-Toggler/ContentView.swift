@@ -23,7 +23,7 @@ struct ContentView: View {
                 Toggle("", isOn: $lowPowerModeEnabled)
                     .toggleStyle(.switch)
             }
-            Button(action: {lowPowerModeEnabled.toggle()}, label: {Text("pp")})
+            Divider()
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPowerModeEnabled){ isLowPowerEnabled in
@@ -33,6 +33,7 @@ struct ContentView: View {
                 xpcClient.sendMessage(msg, to: Constants.changePowerMode, onCompletion: {_ in})
             }catch{
                 print(error)
+                lowPowerModeEnabled.toggle()
                 return
             }
         }

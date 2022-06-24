@@ -40,7 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         do{
             try LaunchdManager.authorizeAndBless()
         } catch AuthorizationError.canceled {
-            
         } catch {
             print(error)
         }
@@ -58,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient, authorization: authorization))
         
-        view.frame = NSRect(x: 0, y: 0, width: 250, height: 60)
+        view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if #available(macOS 13.0, *) {
             menuItem.view = view
