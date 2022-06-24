@@ -11,9 +11,6 @@ import Blessed
 struct InstallView: View {
     var body: some View {
         EmptyView()
-            .onAppear{
-                
-            }
     }
 }
 
