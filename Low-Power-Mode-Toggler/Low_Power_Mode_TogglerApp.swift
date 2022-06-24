@@ -23,7 +23,7 @@ struct Low_Power_Mode_TogglerApp: App {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var authorization: Authorization?
@@ -51,6 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }else if granted{
                 self.lowPowerModeNotification.title = "Low Battery"
                 self.lowPowerModeNotification.body = "20% battery remaining. You may enable Low Power Mode to extend your battery life."
+                self.lowPowerModeNotification.categoryIdentifier = "lowPowerMode"
+                self.lowPowerModeNotification.interruptionLevel = .timeSensitive
             }
         })
         
@@ -95,10 +97,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
-                if internalBattery.charge ?? 0 == 20 {
+//                if internalBattery.charge ?? 0 == 20 {
                     notifCenter.getNotificationSettings(completionHandler: {(settings) in
                         if settings.authorizationStatus == .authorized{
                             let request = UNNotificationRequest(identifier: self.notifId, content: self.lowPowerModeNotification, trigger: self.notifTrigger)
+                            let notifAction = UNNotificationAction(identifier: "enableLowPowerMode", title: "Enable Low Power Mode")
+                            let category = UNNotificationCategory(identifier: "lowPowerMode", actions: [notifAction], intentIdentifiers: [])
+                            self.notifCenter.setNotificationCategories([category])
                             self.notifCenter.add(request){(error) in
                                 if let error = error {
                                     print(error)
@@ -106,7 +111,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             }
                         }
                     })
-                }
+//                }
             }
         }else{
             let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
@@ -124,6 +129,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }catch{
             print(error)
             return
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        if response.notification.request.content.categoryIdentifier == "lowPowerMode" {
+            switch response.actionIdentifier{
+            case "enableLowPowerMode":
+                isLowPowerEnabled.toggle()
+                changePowerMode()
+                print("dne")
+                break
+            default:
+                print(response.actionIdentifier)
+                break
+            }
         }
     }
     
