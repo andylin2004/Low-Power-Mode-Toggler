@@ -23,7 +23,7 @@ struct Low_Power_Mode_TogglerApp: App {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var authorization: Authorization?
@@ -134,6 +134,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
     }
     
+    @objc public func togglePowerModeSelector(_: AnyObject){
+        changePowerMode()
+    }
+    
+    @objc public func powerSourceUpdate(_: AnyObject){
+        DispatchQueue.main.async {
+            self.updateBatteryInBar()
+        }
+    }
+    
+    @objc public func quitApp(_: AnyObject){
+        NSApplication.shared.terminate(self)
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         if response.notification.request.content.categoryIdentifier == "lowPowerMode" {
             switch response.actionIdentifier{
@@ -149,19 +165,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         return [.banner]
-    }
-    
-    @objc public func togglePowerModeSelector(_: AnyObject){
-        changePowerMode()
-    }
-    
-    @objc public func powerSourceUpdate(_: AnyObject){
-        DispatchQueue.main.async {
-            self.updateBatteryInBar()
-        }
-    }
-    
-    @objc public func quitApp(_: AnyObject){
-        NSApplication.shared.terminate(self)
     }
 }
