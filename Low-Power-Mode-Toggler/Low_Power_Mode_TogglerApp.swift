@@ -11,6 +11,7 @@ import UserNotifications
 import IOKit.ps
 import SecureXPC
 import Blessed
+import EmbeddedPropertyList
 
 @main
 struct Low_Power_Mode_TogglerApp: App {
@@ -39,11 +40,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let internalFinder = InternalFinder();
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        do{
-            try LaunchdManager.authorizeAndBless()
-        } catch AuthorizationError.canceled {
-        } catch {
-            print(error)
+        if !checkHelperTool(){
+            do{
+                try LaunchdManager.authorizeAndBless()
+            } catch AuthorizationError.canceled {
+            } catch {
+                print(error)
+            }
         }
         
         UNUserNotificationCenter.current().delegate = self
@@ -171,5 +174,23 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         return [.banner]
+    }
+}
+
+func checkHelperTool() -> Bool {
+    let process = Process()
+    process.executableURL = URL("/bin/launchctl")
+    process.arguments = ["print", "system/com.andylin.Low-Power-Mode-Toggler.helper"]
+    process.qualityOfService = QualityOfService.userInitiated
+    
+    process.launch()
+    process.waitUntilExit()
+    let registeredWithLaunchd = (process.terminationStatus == 0)
+    
+    do {
+        let _ = try EmbeddedPropertyListReader.info.readExternal(from: URL(fileURLWithPath: "/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper"))
+        return registeredWithLaunchd
+    } catch {
+        return false
     }
 }
