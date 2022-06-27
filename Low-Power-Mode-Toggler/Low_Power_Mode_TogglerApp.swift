@@ -182,6 +182,8 @@ func checkHelperTool() -> Bool {
     process.executableURL = URL("/bin/launchctl")
     process.arguments = ["print", "system/com.andylin.Low-Power-Mode-Toggler.helper"]
     process.qualityOfService = QualityOfService.userInitiated
+    process.standardOutput = nil
+    process.standardInput = nil
     
     process.launch()
     process.waitUntilExit()
