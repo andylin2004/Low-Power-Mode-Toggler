@@ -44,6 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             print(error)
         }
         
+        UNUserNotificationCenter.current().delegate = self
+        
         notifCenter.requestAuthorization(options: [.alert, .badge], completionHandler: { granted, error in
             if let error = error{
                 print(error)
@@ -137,7 +139,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             switch response.actionIdentifier{
             case "enableLowPowerMode":
                 changePowerMode()
-                print("dne")
                 break
             default:
                 print(response.actionIdentifier)
@@ -146,6 +147,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        return [.banner]
+    }
     
     @objc public func togglePowerModeSelector(_: AnyObject){
         changePowerMode()
