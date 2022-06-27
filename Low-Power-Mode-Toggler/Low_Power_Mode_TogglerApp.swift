@@ -27,14 +27,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var authorization: Authorization?
+    var batteryPercentage = 0.0
     let menu = NSMenu()
     let menuItem = NSMenuItem()
     let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
     let notifCenter = UNUserNotificationCenter.current()
-    let lowPowerModeNotification = UNMutableNotificationContent()
+    let lowPowerModeEnabledNotification = UNMutableNotificationContent()
     let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
     let notifId = "lowPoweModeNotif"
+    let internalFinder = InternalFinder();
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         do{
@@ -50,10 +52,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if let error = error{
                 print(error)
             }else if granted{
-                self.lowPowerModeNotification.title = "Low Battery"
-                self.lowPowerModeNotification.body = "20% battery remaining. You may enable Low Power Mode to extend your battery life."
-                self.lowPowerModeNotification.categoryIdentifier = "lowPowerMode"
-                self.lowPowerModeNotification.interruptionLevel = .timeSensitive
+                self.lowPowerModeEnabledNotification.title = "Low Battery"
+                self.lowPowerModeEnabledNotification.body = "20% battery remaining. You may enable Low Power Mode to extend your battery life."
+                self.lowPowerModeEnabledNotification.categoryIdentifier = "lowPowerMode"
+                self.lowPowerModeEnabledNotification.interruptionLevel = .timeSensitive
             }
         })
         
@@ -75,6 +77,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
         NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
+        if let internalBattery = internalFinder.getInternalBattery(){
+            batteryPercentage = internalBattery.charge ?? 0.0
+        }
+        
         updateBatteryInBar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(powerSourceUpdate(_:)), name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"), object: nil)
@@ -83,7 +89,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func updateBatteryInBar(){
-        let internalFinder = InternalFinder();
         if let internalBattery = internalFinder.getInternalBattery(){
             isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
             menuItem.state = isLowPowerEnabled ? .on : .off
@@ -91,17 +96,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: NSColor.systemYellow]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
-                if internalBattery.charge ?? 0 >= 80 {
+                if internalBattery.charge ?? 0 >= 80 && batteryPercentage < 80 {
                     
                 }
             }else{
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
-//                if internalBattery.charge ?? 0 == 20 {
+                if internalBattery.charge ?? 0 == 20 && batteryPercentage > 20 {
                     notifCenter.getNotificationSettings(completionHandler: {(settings) in
                         if settings.authorizationStatus == .authorized{
-                            let request = UNNotificationRequest(identifier: self.notifId, content: self.lowPowerModeNotification, trigger: self.notifTrigger)
+                            let request = UNNotificationRequest(identifier: self.notifId, content: self.lowPowerModeEnabledNotification, trigger: self.notifTrigger)
                             let notifAction = UNNotificationAction(identifier: "enableLowPowerMode", title: "Enable Low Power Mode")
                             let category = UNNotificationCategory(identifier: "lowPowerMode", actions: [notifAction], intentIdentifiers: [])
                             self.notifCenter.setNotificationCategories([category])
@@ -112,8 +117,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             }
                         }
                     })
-//                }
+                }
             }
+            batteryPercentage = internalBattery.charge ?? 0
         }else{
             let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
             let str = NSAttributedString(string: "No Battery", attributes: attributes)
