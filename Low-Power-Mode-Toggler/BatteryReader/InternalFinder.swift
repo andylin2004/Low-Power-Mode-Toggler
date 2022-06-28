@@ -13,7 +13,14 @@ public class InternalFinder {
     private var internalChecked: Bool = false
     private var hasInternalBattery: Bool = false
     
-    public init() { }
+    public init() {
+        CFRunLoopAddSource(CFRunLoopGetCurrent(),
+                           IOPSNotificationCreateRunLoopSource({ _ in
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"),
+                                            object: nil)
+        }, nil).takeRetainedValue(),
+                           CFRunLoopMode.defaultMode)
+    }
     
     public var batteryPresent: Bool {
         get {
@@ -42,13 +49,6 @@ public class InternalFinder {
     
     public func getInternalBattery() -> InternalBattery? {
         self.open()
-        
-        CFRunLoopAddSource(CFRunLoopGetCurrent(),
-                           IOPSNotificationCreateRunLoopSource({ _ in
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "com.andylin.powerSourceChangedNotif"),
-                                            object: nil)
-        }, nil).takeRetainedValue(),
-                           CFRunLoopMode.defaultMode)
         
         if self.serviceInternal == 0 {
             return nil
