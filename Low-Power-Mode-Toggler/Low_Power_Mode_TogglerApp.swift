@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
     let notifId = "lowPoweModeNotif"
     let internalFinder = InternalFinder();
-    let telementryConfiguration = TelemetryManagerConfiguration(appID: "")
+    let telementryConfiguration = TelemetryManagerConfiguration(appID: Bundle.main.infoDictionary?["TELEMETRY_DECK_API_KEY"] as! String)
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         TelemetryManager.initialize(with: telementryConfiguration)

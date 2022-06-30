@@ -75,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42094D34286DFA2900E620CA /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
 		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolLaunchdPropertyList.swift; sourceTree = "<group>"; };
 		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolInfoPropertyList.swift; sourceTree = "<group>"; };
 		4236AE972860EF5C00D927C8 /* InstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallView.swift; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 				42FD4464285AAC4D0041CA4A /* Low_Power_Mode_Toggler.entitlements */,
 				42FD4461285AAC4D0041CA4A /* Preview Content */,
 				429B9915285E584100CDF739 /* AppConfig.xcconfig */,
+				42094D34286DFA2900E620CA /* APIKeys.xcconfig */,
 			);
 			path = "Low-Power-Mode-Toggler";
 			sourceTree = "<group>";
@@ -743,6 +745,7 @@
 		};
 		42FD447E285AAC4D0041CA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42094D34286DFA2900E620CA /* APIKeys.xcconfig */;
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -779,6 +782,7 @@
 		};
 		42FD447F285AAC4D0041CA4A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42094D34286DFA2900E620CA /* APIKeys.xcconfig */;
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
