@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42094D33286DF68D00E620CA /* TelemetryClient in Frameworks */ = {isa = PBXBuildFile; productRef = 42094D32286DF68D00E620CA /* TelemetryClient */; };
 		42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365906285E94F1003B8D31 /* EmbeddedPropertyList */; };
@@ -119,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				429B98FA285E263700CDF739 /* Blessed in Frameworks */,
+				42094D33286DF68D00E620CA /* TelemetryClient in Frameworks */,
 				429B98FD285E267000CDF739 /* SecureXPC in Frameworks */,
 				42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */,
 			);
@@ -301,6 +303,7 @@
 				429B98F9285E263700CDF739 /* Blessed */,
 				429B98FC285E267000CDF739 /* SecureXPC */,
 				42365906285E94F1003B8D31 /* EmbeddedPropertyList */,
+				42094D32286DF68D00E620CA /* TelemetryClient */,
 			);
 			productName = "Low-Power-Mode-Toggler";
 			productReference = 42FD4458285AAC4B0041CA4A /* Low Power Mode Toggler.app */;
@@ -381,6 +384,7 @@
 				429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */,
 				429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */,
 				42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */,
+				42094D31286DF68D00E620CA /* XCRemoteSwiftPackageReference "SwiftClient" */,
 			);
 			productRefGroup = 42FD4459285AAC4B0041CA4A /* Products */;
 			projectDirPath = "";
@@ -748,7 +752,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
@@ -764,7 +768,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SHARED_DIRECTORY = Shared;
@@ -784,7 +788,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Low-Power-Mode-Toggler/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
@@ -800,7 +804,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SHARED_DIRECTORY = Shared;
@@ -932,6 +936,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		42094D31286DF68D00E620CA /* XCRemoteSwiftPackageReference "SwiftClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TelemetryDeck/SwiftClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/trilemma-dev/EmbeddedPropertyList.git";
@@ -960,6 +972,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		42094D32286DF68D00E620CA /* TelemetryClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42094D31286DF68D00E620CA /* XCRemoteSwiftPackageReference "SwiftClient" */;
+			productName = TelemetryClient;
+		};
 		42365906285E94F1003B8D31 /* EmbeddedPropertyList */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;

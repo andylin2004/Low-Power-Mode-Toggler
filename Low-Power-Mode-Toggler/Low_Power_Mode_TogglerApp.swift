@@ -12,6 +12,7 @@ import IOKit.ps
 import SecureXPC
 import Blessed
 import EmbeddedPropertyList
+import TelemetryClient
 
 @main
 struct Low_Power_Mode_TogglerApp: App {
@@ -38,8 +39,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
     let notifId = "lowPoweModeNotif"
     let internalFinder = InternalFinder();
+    let telementryConfiguration = TelemetryManagerConfiguration(appID: "")
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        TelemetryManager.initialize(with: telementryConfiguration)
+        TelemetryManager.send("appLaunched")
+        
         if !checkHelperTool(){
             do{
                 try LaunchdManager.authorizeAndBless()
