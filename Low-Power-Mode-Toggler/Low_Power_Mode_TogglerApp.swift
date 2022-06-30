@@ -32,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var batteryPercentage = 0.0
     let menu = NSMenu()
     let menuItem = NSMenuItem()
+    let aboutButton = NSMenuItem()
     let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
     let notifCenter = UNUserNotificationCenter.current()
@@ -78,9 +79,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menuItem.title = "Low Power Mode"
             menuItem.action = #selector(togglePowerModeSelector(_:))
         }
+        aboutButton.title = "About Low Power Mode Toggler"
+        aboutButton.action = #selector(showAboutThisApp)
         quitButton.title = "Quit"
         quitButton.action = #selector(quitApp(_:))
         menu.addItem(menuItem)
+        menu.addItem(aboutButton)
         menu.addItem(quitButton)
         statusItem.menu = menu
         NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -150,6 +154,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc public func togglePowerModeSelector(_: AnyObject){
         changePowerMode()
+    }
+    
+    @objc public func showAboutThisApp(_: AnyObject){
+        let window = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
+        
+        window.title = ""
+        window.center()
+        window.makeKeyAndOrderFront(nil)
     }
     
     @objc public func powerSourceUpdate(_: AnyObject){

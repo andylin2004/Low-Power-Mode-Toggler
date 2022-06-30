@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42094D33286DF68D00E620CA /* TelemetryClient in Frameworks */ = {isa = PBXBuildFile; productRef = 42094D32286DF68D00E620CA /* TelemetryClient */; };
+		42094D37286E01E300E620CA /* AboutThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42094D36286E01DA00E620CA /* AboutThisAppView.swift */; };
 		42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365906285E94F1003B8D31 /* EmbeddedPropertyList */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		42094D34286DFA2900E620CA /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
+		42094D36286E01DA00E620CA /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
 		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolLaunchdPropertyList.swift; sourceTree = "<group>"; };
 		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolInfoPropertyList.swift; sourceTree = "<group>"; };
 		4236AE972860EF5C00D927C8 /* InstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				42FD4461285AAC4D0041CA4A /* Preview Content */,
 				429B9915285E584100CDF739 /* AppConfig.xcconfig */,
 				42094D34286DFA2900E620CA /* APIKeys.xcconfig */,
+				42094D36286E01DA00E620CA /* AboutThisAppView.swift */,
 			);
 			path = "Low-Power-Mode-Toggler";
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				4236590B285E9523003B8D31 /* HelperToolInfoPropertyList.swift in Sources */,
 				42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */,
 				4236AE982860EF5C00D927C8 /* InstallView.swift in Sources */,
+				42094D37286E01E300E620CA /* AboutThisAppView.swift in Sources */,
 				42FD4488285AB1910041CA4A /* InternalBattery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
