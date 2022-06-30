@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var authorization: Authorization?
     var batteryPercentage = 0.0
+    let window = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
     let menu = NSMenu()
     let menuItem = NSMenuItem()
     let aboutButton = NSMenuItem()
@@ -87,6 +88,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(aboutButton)
         menu.addItem(quitButton)
         statusItem.menu = menu
+        
+        window.title = ""
+        window.standardWindowButton(.miniaturizeButton)?.isEnabled = false
+        window.standardWindowButton(.zoomButton)?.isEnabled = false
+        
         NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let internalBattery = internalFinder.getInternalBattery(){
@@ -157,9 +163,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc public func showAboutThisApp(_: AnyObject){
-        let window = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
-        
-        window.title = ""
         window.center()
         window.makeKeyAndOrderFront(nil)
     }
