@@ -1,0 +1,11 @@
+//
+//  APIKeys.xcconfig
+//  Low-Power-Mode-Toggler
+//
+//  Created by Andy Lin on 6/30/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+TELEMETRY_DECK_API_KEY = [INSERT_HERE]
