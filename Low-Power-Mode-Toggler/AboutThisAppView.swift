@@ -18,7 +18,7 @@ struct AboutThisAppView: View {
             Text("Low Power Mode Toggler")
                 .bold()
             Text("Version \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)")
-            Text("Copyright © 2022 Andy Lin. All rights reserved.")
+            Text("Copyright © 2022 [Andy Lin](https://andylin2004.github.io). All rights reserved.")
             
             HStack{
                 Link(destination: URL(string: "https://github.com/andylin2004")!){
@@ -28,10 +28,18 @@ struct AboutThisAppView: View {
                         Image("GithubLight")
                     }
                 }
-                Link("Hey", destination: URL(string: "https://github.com/andylin2004")!)
+                Link(destination: URL(string: "mailto:robloxian12345@hotmail.com?subject=Low%20Power%20Mode%20Toggler%20Support")!){
+                    Image(systemName: "envelope.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 32, maxHeight: 32)
+                        .foregroundColor(.black)
+                }
             }
         }
-        .frame(width: 300, height: 250)
+        .padding(.top, -10)
+        .padding(.horizontal, 10)
+        .frame(width: 320, height: 210)
     }
 }
 
