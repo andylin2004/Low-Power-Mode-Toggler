@@ -20,7 +20,7 @@ struct LowPowerController{
     
     static func changePowerMode(lowPowerUpdate: LowPowerModeUpdate) throws {
         do{
-            let rights = try lowPowerUpdate.authorization.requestRights([authorizationRight], environment: [], options: [.preAuthorize, .interactionAllowed, .extendRights])
+            let rights = try lowPowerUpdate.authorization.requestRights([authorizationRight], environment: [], options: [.interactionAllowed, .extendRights])
             if !rights.contains(where: { $0.name == authorizationRight.name }) {
                 throw AllowedCommandError.authorizationFailed
             }
