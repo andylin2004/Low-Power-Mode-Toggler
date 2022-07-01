@@ -25,6 +25,7 @@
 		429B9906285E32E100CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		429B9909285E338C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
+		42F8E9CA286F3B3200C02A78 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */; };
 		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
 		42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445D285AAC4B0041CA4A /* ContentView.swift */; };
 		42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD445F285AAC4D0041CA4A /* Assets.xcassets */; };
@@ -125,6 +126,7 @@
 				429B98FA285E263700CDF739 /* Blessed in Frameworks */,
 				42094D33286DF68D00E620CA /* TelemetryClient in Frameworks */,
 				429B98FD285E267000CDF739 /* SecureXPC in Frameworks */,
+				42F8E9CA286F3B3200C02A78 /* LaunchAtLogin in Frameworks */,
 				42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +299,8 @@
 				42FD4455285AAC4B0041CA4A /* Frameworks */,
 				429B9905285E32BD00CDF739 /* CopyFiles */,
 				42FD4456285AAC4B0041CA4A /* Resources */,
-				429B9912285E572400CDF739 /* ShellScript */,
+				429B9912285E572400CDF739 /* Run Script */,
+				42F8E9CB286F3B6C00C02A78 /* Copy “Launch at Login Helper” */,
 			);
 			buildRules = (
 			);
@@ -309,6 +312,7 @@
 				429B98FC285E267000CDF739 /* SecureXPC */,
 				42365906285E94F1003B8D31 /* EmbeddedPropertyList */,
 				42094D32286DF68D00E620CA /* TelemetryClient */,
+				42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */,
 			);
 			productName = "Low-Power-Mode-Toggler";
 			productReference = 42FD4458285AAC4B0041CA4A /* Low Power Mode Toggler.app */;
@@ -390,6 +394,7 @@
 				429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */,
 				42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */,
 				42094D31286DF68D00E620CA /* XCRemoteSwiftPackageReference "SwiftClient" */,
+				42F8E9C8286F3B3200C02A78 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 42FD4459285AAC4B0041CA4A /* Products */;
 			projectDirPath = "";
@@ -481,7 +486,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift cleanup-job-bless-requirements cleanup-mach-services\n";
 		};
-		429B9912285E572400CDF739 /* ShellScript */ = {
+		429B9912285E572400CDF739 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -490,6 +495,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -497,6 +503,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift cleanup-job-bless-requirements\n";
+		};
+		42F8E9CB286F3B6C00C02A78 /* Copy “Launch at Login Helper” */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy “Launch at Login Helper”";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -977,6 +1001,14 @@
 				minimumVersion = 0.7.0;
 			};
 		};
+		42F8E9C8286F3B3200C02A78 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1014,6 +1046,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */;
 			productName = Blessed;
+		};
+		42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42F8E9C8286F3B3200C02A78 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
