@@ -20,7 +20,8 @@ struct Low_Power_Mode_TogglerApp: App {
     
     var body: some Scene {
         Settings {
-            EmptyView()
+            SettingsView()
+                .frame(minWidth: 400, minHeight: 200)
         }
     }
 }
@@ -33,6 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let aboutWindow = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
     let menu = NSMenu()
     let menuItem = NSMenuItem()
+    let settingsButton = NSMenuItem()
     let aboutButton = NSMenuItem()
     let quitButton = NSMenuItem()
     let xpcClient = XPCClient.forMachService(named: "com.andylin.Low-Power-Mode-Toggler.helper")
@@ -80,11 +82,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menuItem.title = "Low Power Mode"
             menuItem.action = #selector(togglePowerModeSelector(_:))
         }
+        settingsButton.title = "Low Power Mode Toggler Settings"
+        settingsButton.action = #selector(showSettings)
         aboutButton.title = "About Low Power Mode Toggler"
         aboutButton.action = #selector(showAboutThisApp)
         quitButton.title = "Quit"
         quitButton.action = #selector(quitApp(_:))
         menu.addItem(menuItem)
+        menu.addItem(settingsButton)
         menu.addItem(aboutButton)
         menu.addItem(quitButton)
         statusItem.menu = menu
@@ -165,6 +170,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc public func showAboutThisApp(_: AnyObject){
         aboutWindow.center()
         aboutWindow.makeKeyAndOrderFront(nil)
+    }
+    
+    @objc public func showSettings(_: AnyObject){
+        if #available(macOS 13.0, *) {
+            NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        } else {
+            NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
+        }
     }
     
     @objc public func powerSourceUpdate(_: AnyObject){
