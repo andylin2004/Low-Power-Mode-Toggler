@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if !checkHelperTool(){
             do{
-                try LaunchdManager.authorizeAndBless()
+                try LaunchdManager.authorizeAndBless(message: "This helper tool will be used to connect to this app to turn Low Power Mode on and off.")
             } catch AuthorizationError.canceled {
             } catch {
                 print(error)
