@@ -22,7 +22,7 @@ struct Uninstaller {
     
     static func uninstallFromXPC() throws {
         let process = Process()
-        process.executableURL = URL("\(Bundle.main.bundlePath)/\(Bundle.main.bundleIdentifier)")
+        process.executableURL = URL(string: "\(Bundle.main.bundlePath)/\(String(describing: Bundle.main.bundleIdentifier))")
         process.qualityOfService = .utility
         process.arguments = ["uninstall", String(getpid())]
         process.launch()
@@ -41,7 +41,7 @@ struct Uninstaller {
     }
     
     private static func uninstallAfterProcessExits(pid: pid_t) throws {
-        while kill(pid, 0) == 0 {\
+        while kill(pid, 0) == 0 {
             NSLog("Still waiting for process to exit")
             usleep(50 * 1000)
         }
@@ -53,7 +53,7 @@ struct Uninstaller {
         let process = Process()
         process.executableURL = URL("/bin/launchctl")
         process.qualityOfService = .utility
-        process.arguments = ["unload", "\(Bundle.main.bundlePath)/\(Bundle.main.bundleIdentifier)"]
+        process.arguments = ["unload", "\(Bundle.main.bundlePath)/\(String(describing: Bundle.main.bundleIdentifier))"]
         process.launch()
         NSLog("about to wait for launchctl")
         process.waitUntilExit()
@@ -64,10 +64,10 @@ struct Uninstaller {
             throw UninstallError.launchctlFailure(terminationStatus)
         }
         
-        try FileManager.default.removeItem(at: URL("/Library/LaunchDaemons/\(Bundle.main.bundleIdentifier).plist"))
+        try FileManager.default.removeItem(at: URL(string: "/Library/LaunchDaemons/\(String(describing: Bundle.main.bundleIdentifier)).plist")!)
         NSLog("property list deleted")
         
-        try FileManager.default.removeItem(at: URL("\(Bundle.main.bundlePath)/\(Bundle.main.bundleIdentifier)"))
+        try FileManager.default.removeItem(at: URL(string: "\(Bundle.main.bundlePath)/\(String(describing: Bundle.main.bundleIdentifier))")!)
         NSLog("helper tool deleted")
         NSLog("uninstall completed, exiting...")
         exit(0)
