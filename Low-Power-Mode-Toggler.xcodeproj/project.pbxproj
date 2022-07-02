@@ -94,6 +94,7 @@
 		429B9915285E584100CDF739 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		42A1E1B328660FBD009752E2 /* com.andylin.Low-Power-Mode-Toggler.helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "com.andylin.Low-Power-Mode-Toggler.helper.entitlements"; sourceTree = "<group>"; };
 		42F8E9CC286F403900C02A78 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		42F8E9CE2870852A00C02A78 /* Uninstall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uninstall.swift; sourceTree = "<group>"; };
 		42FD4458285AAC4B0041CA4A /* Low Power Mode Toggler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Low Power Mode Toggler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Low_Power_Mode_TogglerApp.swift; sourceTree = "<group>"; };
 		42FD445D285AAC4B0041CA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 				429B9901285E28C400CDF739 /* LowPowerController.swift */,
 				429B990B285E470300CDF739 /* Info.plist */,
 				429B9913285E57F400CDF739 /* HelperToolConfig.xcconfig */,
+				42F8E9CE2870852A00C02A78 /* Uninstall.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";

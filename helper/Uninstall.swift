@@ -1,0 +1,63 @@
+//
+//  Uninstall.swift
+//  Low-Power-Mode-Toggler
+//
+//  Created by Andy Lin on 7/2/22.
+//
+
+import Foundation
+
+struct Uninstaller {
+    
+    enum UninstallError: Error {
+        /// Uninstall will not be performed because this code is not running from the blessed location.
+        case notRunningFromBlessedLocation
+        /// Attempting to unload using `launchctl` failed.
+        ///
+        /// The associated value is the underlying status code.
+        case launchctlFailure(Int32)
+        /// The argument provided must be a process identifier, but was not.
+        case notProcessId
+    }
+    
+    static func uninstallFromXPC() throws {
+        let process = Process()
+        process.executableURL = URL("\(Bundle.main.bundlePath)/\(Bundle.main.bundleIdentifier)")
+        process.qualityOfService = .utility
+        process.arguments = ["uninstall", String(getpid())]
+        process.launch()
+        exit(0)
+    }
+    
+    static func uninstallFromCommandLine(withArguments args: [String]) throws {
+        if args.count == 1 {
+            
+        }else{
+            
+        }
+    }
+    
+    private static func uninstallImmediately() throws{
+        let process = Process()
+        process.executableURL = URL("/bin/launchctl")
+        process.qualityOfService = .utility
+        process.arguments = ["unload", "\(Bundle.main.bundlePath)/\(Bundle.main.bundleIdentifier)"]
+        process.launch()
+        NSLog("about to wait for launchctl")
+        process.waitUntilExit()
+        let terminationStatus = process.terminationStatus
+        if terminationStatus == 0 {
+            NSLog("unloaded from launchctl")
+        } else {
+            throw UninstallError.launchctlFailure(terminationStatus)
+        }
+        
+        try FileManager.default.removeItem(at: URL("/Library/LaunchDaemons/\(Bundle.main.bundleIdentifier).plist"))
+        NSLog("property list deleted")
+        
+        try FileManager.default.removeItem(at: URL("\(Bundle.main.bundlePath)/\(Bundle.main.bundleIdentifier)"))
+        NSLog("helper tool deleted")
+        NSLog("uninstall completed, exiting...")
+        exit(0)
+    }
+}
