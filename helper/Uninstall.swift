@@ -22,7 +22,7 @@ struct Uninstaller {
     
     static func uninstallFromXPC() throws {
         let process = Process()
-        process.executableURL = URL(string: "\(Bundle.main.bundlePath)/\(String(describing: Bundle.main.bundleIdentifier))")
+        process.executableURL = URL("/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper")
         process.qualityOfService = .utility
         process.arguments = ["uninstall", String(getpid())]
         process.launch()
@@ -53,7 +53,7 @@ struct Uninstaller {
         let process = Process()
         process.executableURL = URL("/bin/launchctl")
         process.qualityOfService = .utility
-        process.arguments = ["unload", "\(Bundle.main.bundlePath)/\(String(describing: Bundle.main.bundleIdentifier))"]
+        process.arguments = ["unload", "/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper"]
         process.launch()
         NSLog("about to wait for launchctl")
         process.waitUntilExit()
@@ -64,10 +64,10 @@ struct Uninstaller {
             throw UninstallError.launchctlFailure(terminationStatus)
         }
         
-        try FileManager.default.removeItem(at: URL(string: "/Library/LaunchDaemons/\(String(describing: Bundle.main.bundleIdentifier)).plist")!)
+        try FileManager.default.removeItem(at: URL("/Library/LaunchDaemons/com.andylin.Low-Power-Mode-Toggler.helper.plist")!)
         NSLog("property list deleted")
         
-        try FileManager.default.removeItem(at: URL(string: "\(Bundle.main.bundlePath)/\(String(describing: Bundle.main.bundleIdentifier))")!)
+        try FileManager.default.removeItem(at: URL("/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper")!)
         NSLog("helper tool deleted")
         NSLog("uninstall completed, exiting...")
         exit(0)
