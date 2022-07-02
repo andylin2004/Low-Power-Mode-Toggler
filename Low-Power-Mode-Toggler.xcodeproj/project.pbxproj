@@ -27,6 +27,7 @@
 		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		42F8E9CA286F3B3200C02A78 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */; };
 		42F8E9CD286F403900C02A78 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CC286F403900C02A78 /* SettingsView.swift */; };
+		42F8E9CF2870966600C02A78 /* Uninstall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CE2870852A00C02A78 /* Uninstall.swift */; };
 		42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445B285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift */; };
 		42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD445D285AAC4B0041CA4A /* ContentView.swift */; };
 		42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FD445F285AAC4D0041CA4A /* Assets.xcassets */; };
@@ -534,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F8E9CF2870966600C02A78 /* Uninstall.swift in Sources */,
 				42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */,
 				429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */,
 				429B98F4285E258F00CDF739 /* main.swift in Sources */,
