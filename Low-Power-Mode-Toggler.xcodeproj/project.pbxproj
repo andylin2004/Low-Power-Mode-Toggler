@@ -490,7 +490,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift cleanup-job-bless-requirements cleanup-mach-services\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# \"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift cleanup-job-bless-requirements cleanup-mach-services\n";
 		};
 		429B9912285E572400CDF739 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;

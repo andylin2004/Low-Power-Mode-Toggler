@@ -20,7 +20,7 @@ struct Low_Power_Mode_TogglerApp: App {
     
     var body: some Scene {
         Settings {
-            SettingsView()
+            SettingsView(xpcClient: appDelegate.xpcClient)
                 .frame(minWidth: 400, minHeight: 200)
         }
     }
