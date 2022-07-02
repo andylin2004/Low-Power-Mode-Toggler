@@ -31,10 +31,22 @@ struct Uninstaller {
     
     static func uninstallFromCommandLine(withArguments args: [String]) throws {
         if args.count == 1 {
-            
+            try uninstallImmediately()
         }else{
-            
+            guard let pid: pid_t = Int32(args[1]) else{
+                throw UninstallError.notProcessId
+            }
+            try uninstallAfterProcessExits(pid: pid)
         }
+    }
+    
+    private static func uninstallAfterProcessExits(pid: pid_t) throws {
+        while kill(pid, 0) == 0 {\
+            NSLog("Still waiting for process to exit")
+            usleep(50 * 1000)
+        }
+        NSLog("Process exited; time to uninstall")
+        try uninstallImmediately()
     }
     
     private static func uninstallImmediately() throws{
