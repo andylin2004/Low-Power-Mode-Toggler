@@ -14,6 +14,9 @@ struct Constants {
         .withMessageType(LowPowerModeUpdate.self)
     
     static let uninstall = XPCRoute.named("uninstall")
+    
+    static let update = XPCRoute.named("update")
+        .withMessageType(URL.self)
 }
 
 struct LowPowerModeUpdate: Codable {
