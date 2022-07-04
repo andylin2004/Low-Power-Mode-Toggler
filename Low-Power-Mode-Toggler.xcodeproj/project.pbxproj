@@ -842,6 +842,7 @@
 				HELPER_TOOL_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
 				INFOPLIST_FILE = "Low-Power-Mode-Toggler/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Low Power Mode Toggler";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -879,6 +880,7 @@
 				HELPER_TOOL_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
 				INFOPLIST_FILE = "Low-Power-Mode-Toggler/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Low Power Mode Toggler";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
