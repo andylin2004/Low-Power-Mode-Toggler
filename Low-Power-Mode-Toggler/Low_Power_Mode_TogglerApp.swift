@@ -13,6 +13,7 @@ import SecureXPC
 import Blessed
 import EmbeddedPropertyList
 import TelemetryClient
+import AckGen
 
 @main
 struct Low_Power_Mode_TogglerApp: App {
@@ -227,5 +228,15 @@ func checkHelperTool() -> Bool {
         return registeredWithLaunchd
     } catch {
         return false
+    }
+}
+
+extension Acknowledgement: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
+    
+    public static func == (lhs: Acknowledgement, rhs: Acknowledgement) -> Bool {
+        return lhs.title == rhs.title
     }
 }

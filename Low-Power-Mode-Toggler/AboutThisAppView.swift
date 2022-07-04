@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import AckGen
 
 struct AboutThisAppView: View {
     @Environment(\.colorScheme) var colorScheme
+    @State var showAcks = false
     
     var body: some View {
         VStack(spacing: 5){
@@ -19,6 +21,23 @@ struct AboutThisAppView: View {
                 .bold()
             Text("Version \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)")
             Text("Copyright © 2022 [Andy Lin](https://andylin2004.github.io). All rights reserved.")
+            Button(action: {
+                showAcks.toggle()
+            }){
+                Text("Acknowledgements")
+            }
+            .popover(isPresented: $showAcks){
+                ScrollView{
+                    ForEach(Acknowledgement.all(), id: \.self) { acknowledgement in
+                        if acknowledgement.title != "SwiftClient"{
+                            Text("\(acknowledgement.title):\n\(acknowledgement.license)".trimmingCharacters(in: .whitespacesAndNewlines))
+                        }
+                    }
+                    .padding(.all)
+                }
+                .frame(maxWidth: 400, maxHeight: 400)
+            }
+            
             
             HStack{
                 Link(destination: URL(string: "https://github.com/andylin2004")!){
@@ -39,7 +58,7 @@ struct AboutThisAppView: View {
         }
         .padding(.top, -10)
         .padding(.horizontal, 10)
-        .frame(width: 320, height: 210)
+        .frame(width: 320, height: 250)
     }
 }
 
