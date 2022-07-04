@@ -16,13 +16,14 @@ struct SettingsView: View {
     @State var updateAvailible = false
     var body: some View {
         TabView{
-            VStack{
+            Form{
                 LaunchAtLogin.Toggle()
             }
             .tabItem{
                 Label("General", systemImage: "gearshape")
             }
-            VStack{
+            
+            Form{
                 if helperToolInstalled{
                     Button("Uninstall Helper Tool"){
                         xpcClient.send(to: Constants.uninstall, onCompletion: { response in
@@ -67,14 +68,14 @@ struct SettingsView: View {
                         helperToolInstalled = checkHelperTool()
                     }
                 }
+            }.onAppear{
+                helperToolInstalled = checkHelperTool()
+                if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
+                    let bundlePath = URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL
+                    updateAvailible = try! HelperToolInfoPropertyList(from: bundlePath).version > HelperToolInfoPropertyList(from: URL(fileURLWithPath: Constants.installedHelperToolLocation)).version
+                }
             }.tabItem{
-                Label("Advanced", systemImage: "gearshape")
-            }
-        }.onAppear{
-            helperToolInstalled = checkHelperTool()
-            if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
-                let bundlePath = URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL
-                updateAvailible = try! HelperToolInfoPropertyList(from: bundlePath).version > HelperToolInfoPropertyList(from: URL(fileURLWithPath: Constants.installedHelperToolLocation)).version
+                Label("Advanced", systemImage: "exclamationmark.triangle")
             }
         }
     }
