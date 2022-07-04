@@ -13,6 +13,7 @@ import Blessed
 struct SettingsView: View {
     let xpcClient: XPCClient!
     @State var helperToolInstalled = false
+    @State var updateAvailible = false
     var body: some View {
         TabView{
             VStack{
@@ -37,15 +38,19 @@ struct SettingsView: View {
                             }
                         })
                     }
-                    Button("Update Helper Tool"){
-                        if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
-                            self.xpcClient.sendMessage(URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL, to: Constants.update) { response in
-                                if case .failure(let error) = response {
-                                    switch error {
-                                    case .connectionInterrupted:
-                                        () // It's expected the connection is interrupted as part of updating the client
-                                    default:
-                                        print(error)
+                    if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
+                        let bundlePath = URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL
+                        if updateAvailible{
+                            Button("Update Helper Tool"){
+                                self.xpcClient.sendMessage(bundlePath, to: Constants.update) { response in
+                                    if case .failure(let error) = response {
+                                        switch error {
+                                        case .connectionInterrupted:
+                                            updateAvailible = false
+                                            // It's expected the connection is interrupted as part of uninstalling the client
+                                        default:
+                                            print(error)
+                                        }
                                     }
                                 }
                             }
@@ -67,6 +72,10 @@ struct SettingsView: View {
             }
         }.onAppear{
             helperToolInstalled = checkHelperTool()
+            if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
+                let bundlePath = URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL
+                updateAvailible = try! HelperToolInfoPropertyList(from: bundlePath).version > HelperToolInfoPropertyList(from: URL(fileURLWithPath: Constants.installedHelperToolLocation)).version
+            }
         }
     }
 }

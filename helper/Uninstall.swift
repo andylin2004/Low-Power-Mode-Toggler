@@ -22,7 +22,7 @@ struct Uninstaller {
     
     static func uninstallFromXPC() throws {
         let process = Process()
-        process.executableURL = URL("/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper")
+        process.executableURL = URL(fileURLWithPath: Constants.installedHelperToolLocation)
         process.qualityOfService = .utility
         process.arguments = ["uninstall", String(getpid())]
         process.launch()
@@ -53,7 +53,7 @@ struct Uninstaller {
         let process = Process()
         process.executableURL = URL("/bin/launchctl")
         process.qualityOfService = .utility
-        process.arguments = ["unload", "/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper"]
+        process.arguments = ["unload", Constants.installedHelperToolLocation]
         process.launch()
         NSLog("about to wait for launchctl")
         process.waitUntilExit()
@@ -67,7 +67,7 @@ struct Uninstaller {
         try FileManager.default.removeItem(at: URL("/Library/LaunchDaemons/com.andylin.Low-Power-Mode-Toggler.helper.plist")!)
         NSLog("property list deleted")
         
-        try FileManager.default.removeItem(at: URL("/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper")!)
+        try FileManager.default.removeItem(at: URL(fileURLWithPath: Constants.installedHelperToolLocation))
         NSLog("helper tool deleted")
         NSLog("uninstall completed, exiting...")
         exit(0)

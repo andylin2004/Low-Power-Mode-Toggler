@@ -17,6 +17,8 @@ struct Constants {
     
     static let update = XPCRoute.named("update")
         .withMessageType(URL.self)
+    
+    static let installedHelperToolLocation = "/Library/PrivilegedHelperTools/com.andylin.Low-Power-Mode-Toggler.helper"
 }
 
 struct LowPowerModeUpdate: Codable {
