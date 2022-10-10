@@ -664,6 +664,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SHARED_DIRECTORY = Shared;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGET_DIRECTORY = helper;
 			};
@@ -699,6 +700,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SHARED_DIRECTORY = Shared;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGET_DIRECTORY = helper;
 			};
@@ -1063,8 +1065,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MartinP7r/AckGen";
 			requirement = {
-				kind = exactVersion;
-				version = 0.1.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -52,7 +52,7 @@ struct AboutThisAppView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 32, maxHeight: 32)
-                        .foregroundColor(.black)
+                        .foregroundColor(colorScheme == .light ? .black : .white)
                 }
             }
         }
