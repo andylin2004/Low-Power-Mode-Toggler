@@ -179,6 +179,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
         }
+        NSApp.windows.last?.level = NSWindow.Level.normal + 1
+        NSApp.windows.last?.center()
+        NSApp.windows.last?.orderFrontRegardless()
     }
     
     @objc public func powerSourceUpdate(_: AnyObject){
