@@ -6,6 +6,7 @@
 //
 
 import IOKit
+import Foundation
 
 func getModelIdentifier() -> String? {
     let service = IOServiceGetMatchingService(kIOMainPortDefault,
