@@ -25,6 +25,7 @@
 		429B9906285E32E100CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		429B9909285E338C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
+		42E5EBFB28F8B3250018003F /* MacModelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5EBFA28F8B3250018003F /* MacModelID.swift */; };
 		42F8E9CA286F3B3200C02A78 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */; };
 		42F8E9CD286F403900C02A78 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CC286F403900C02A78 /* SettingsView.swift */; };
 		42F8E9CF2870966600C02A78 /* Uninstall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CE2870852A00C02A78 /* Uninstall.swift */; };
@@ -100,6 +101,7 @@
 		429B9914285E580F00CDF739 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		429B9915285E584100CDF739 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		42A1E1B328660FBD009752E2 /* com.andylin.Low-Power-Mode-Toggler.helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "com.andylin.Low-Power-Mode-Toggler.helper.entitlements"; sourceTree = "<group>"; };
+		42E5EBFA28F8B3250018003F /* MacModelID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacModelID.swift; sourceTree = "<group>"; };
 		42F8E9CC286F403900C02A78 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		42F8E9CE2870852A00C02A78 /* Uninstall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uninstall.swift; sourceTree = "<group>"; };
 		42F8E9D028711FE200C02A78 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				42094D34286DFA2900E620CA /* APIKeys.xcconfig */,
 				42094D36286E01DA00E620CA /* AboutThisAppView.swift */,
 				42F8E9CC286F403900C02A78 /* SettingsView.swift */,
+				42E5EBFA28F8B3250018003F /* MacModelID.swift */,
 			);
 			path = "Low-Power-Mode-Toggler";
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 			files = (
 				42F8E9D32871200600C02A78 /* CodeInfo.swift in Sources */,
 				429B990A285E3A5C00CDF739 /* Constants.swift in Sources */,
+				42E5EBFB28F8B3250018003F /* MacModelID.swift in Sources */,
 				42FD448A285AB1AD0041CA4A /* InternalFinder.swift in Sources */,
 				42FD445E285AAC4B0041CA4A /* ContentView.swift in Sources */,
 				42FD445C285AAC4B0041CA4A /* Low_Power_Mode_TogglerApp.swift in Sources */,
