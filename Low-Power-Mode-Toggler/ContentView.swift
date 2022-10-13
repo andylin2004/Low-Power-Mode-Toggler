@@ -39,6 +39,12 @@ struct ContentView: View {
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+            do {
+                try print(lowPowerModeSupported())
+            } catch {
+                
+            }
+            
         }
     }
 }

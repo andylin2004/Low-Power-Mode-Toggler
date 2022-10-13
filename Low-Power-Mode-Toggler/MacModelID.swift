@@ -19,3 +19,50 @@ func getModelIdentifier() -> String? {
     IOObjectRelease(service)
     return modelIdentifier
 }
+
+func lowPowerModeSupported() throws -> Bool {
+    if let identifier = getModelIdentifier() {
+//        identifier
+        let range = NSRange(identifier.startIndex..<identifier.endIndex, in: identifier)
+        
+        let capturePattern = #"(?<model>[A-Za-z]+)"# + #"(?<majorNumber>\d+)"# + "," + #"(?<minorNumber>\d+)"#
+        
+        let regex = try! NSRegularExpression(pattern: capturePattern)
+        
+        let matches = regex.matches(in: identifier, range: range)
+        
+        guard let match = matches.first else {
+            throw NSError(domain: "", code: 0)
+        }
+        
+        var captures: [String: String] = [:]
+        
+        for property in ["model", "majorNumber", "minorNumber"] {
+            let matchRange = match.range(withName: property)
+            if let substringRange = Range(matchRange, in: identifier) {
+                let capture = String(identifier[substringRange])
+                captures[property] = capture
+            }
+        }
+        
+        if let majorNumber = Int(captures["majorNumber"] ?? "0") {
+            switch captures["model"]{
+            case "MacBook":
+                return majorNumber >= 9
+            case "MacBookPro":
+                return majorNumber >= 13
+            case "MacBookAir":
+                return majorNumber >= 8
+            case "Mac":
+                if let minorNumber = Int(captures["minorNumber"] ?? "0") {
+                    return majorNumber == 14 && (minorNumber == 2 || minorNumber == 7)
+                }else{
+                    return false
+                }
+            default:
+                return false
+            }
+        }
+    }
+    return false
+}
