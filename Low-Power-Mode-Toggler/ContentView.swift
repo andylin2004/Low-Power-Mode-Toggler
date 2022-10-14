@@ -11,8 +11,6 @@ import Blessed
 
 struct ContentView: View {
     @State var lowPowerModeEnabled = false
-    let xpcClient: XPCClient!
-    @State var authorization: Authorization?
     
     var body: some View {
         VStack{
@@ -28,15 +26,21 @@ struct ContentView: View {
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPowerModeEnabled){ isLowPowerEnabled in
-            do{
-                authorization = try Authorization()
-                let msg = LowPowerModeUpdate(lowPowerEnabled: isLowPowerEnabled, authorization: authorization!)
-                xpcClient.sendMessage(msg, to: Constants.changePowerMode, onCompletion: {_ in})
-            }catch{
-                print(error)
-                lowPowerModeEnabled.toggle()
-                return
+            let process = Process()
+            process.executableURL = URL("/usr/bin/shortcuts")
+            if isLowPowerEnabled {
+                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "1", ofType: "txt")!.description]
+                
+            } else {
+                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "0", ofType: "txt")!.description]
             }
+            process.qualityOfService = .userInteractive
+            let stdout = Pipe()
+            process.standardOutput = stdout
+            let stderr = Pipe()
+            process.standardError = stderr
+            process.launch()
+            process.waitUntilExit()
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
@@ -46,6 +50,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(xpcClient: .forMachService(named: ""))
+        ContentView()
     }
 }
