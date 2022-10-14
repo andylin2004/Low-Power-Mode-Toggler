@@ -159,6 +159,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
     }
     
+    func windowWillClose(_ notification: Notification) {
+        if (notification.object as! NSWindow).title == "Setup Low Power Mode Toggler" {
+            shortcutInstalled = isShortcutInstalled()
+            menuItem.isEnabled = shortcutInstalled
+        }
+    }
+    
     func changePowerMode(){
         isLowPowerEnabled.toggle()
         toggleShortcut(enable: isLowPowerEnabled)
@@ -195,13 +202,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     @objc public func showInstallWindow() {
         installWindow.makeKeyAndOrderFront(self)
-    }
-    
-    func windowWillClose(_ notification: Notification) {
-        if (notification.object as! NSWindow).title == "Setup Low Power Mode Toggler" {
-            shortcutInstalled = isShortcutInstalled()
-            menuItem.isEnabled = shortcutInstalled
-        }
     }
 }
 
