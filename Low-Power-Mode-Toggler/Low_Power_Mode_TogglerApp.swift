@@ -10,7 +10,6 @@ import Foundation
 import UserNotifications
 import IOKit.ps
 import SecureXPC
-import Blessed
 import EmbeddedPropertyList
 import TelemetryClient
 import AckGen
@@ -30,7 +29,6 @@ struct Low_Power_Mode_TogglerApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
-    var authorization: Authorization?
     var batteryPercentage = 0.0
     let aboutWindow = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
     let menu = NSMenu()
@@ -82,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        if #available(macOS 14.0, *) {
+        if #available(macOS 13.0, *) {
             menuItem.view = view
         } else {
             menuItem.state = isLowPowerEnabled ? .on : .off

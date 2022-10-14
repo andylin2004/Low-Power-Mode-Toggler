@@ -26,9 +26,7 @@ struct ContentView: View {
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPowerModeEnabled){ isLowPowerEnabled in
-            if isShortcutInstalled() {
-                
-            }
+            toggleShortcut(enable: isLowPowerEnabled)
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
