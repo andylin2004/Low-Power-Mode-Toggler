@@ -9,7 +9,6 @@ import SwiftUI
 import Blessed
 
 struct InstallView: View {
-    @State var shortcutInstalled: Bool?
     @Environment(\.openURL) var openURL
     var body: some View {
         VStack {
@@ -22,6 +21,9 @@ struct InstallView: View {
             }
             Text("2. Click on the Add Shortcut button")
             Text("\nThe shortcut will ask for admin access when the toggler is used the first time.")
+            Button("Done"){
+                NSApp.keyWindow?.close()
+            }
         }
         .frame(width: 400, height: 130)
         .onDisappear{

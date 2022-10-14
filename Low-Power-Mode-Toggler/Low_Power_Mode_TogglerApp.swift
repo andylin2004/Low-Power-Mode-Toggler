@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(updateShortcutStatus), name: NSNotification.Name("updateShortcutStatus"), object: nil)
         
         if !isShortcutInstalled() {
-            let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView(shortcutInstalled: shortcutInstalled)))
+            let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
             window.title = "Setup Toggler"
             window.makeKeyAndOrderFront(self)
         }
