@@ -50,6 +50,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TelemetryManager.initialize(with: telementryConfiguration)
         TelemetryManager.send("appLaunched")
         
+        if true {
+            let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
+            window.title = "Setup Toggler"
+            window.makeKeyAndOrderFront(self)
+        }
+        
         UNUserNotificationCenter.current().delegate = self
         
         notifCenter.requestAuthorization(options: [.alert, .badge], completionHandler: { granted, error in
