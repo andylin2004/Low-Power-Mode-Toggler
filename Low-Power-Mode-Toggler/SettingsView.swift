@@ -35,17 +35,18 @@ struct AdvancedView: View {
     @State var updateAvailible = false
     var body: some View {
         Form{
-            if !isShortcutInstalled() {
-                GroupBox {
+            GroupBox {
+                if !isShortcutInstalled() {
                     Button("Install Shortcut"){
                         NotificationCenter.default.post(name: NSNotification.Name("openInstallWindow"), object: nil)
                     }
                     Text("This shortcut is required for the toggler to work without having to ask for admin password every time.")
-                    } label: {
-                        Text("New Shortcuts Tool")
-                    }
+                }else{
+                    Text("Shortcut has been installed.")
                 }
-
+            } label: {
+                Text("New Shortcuts Tool")
+            }
             if helperToolInstalled{
                 GroupBox{
                     Button("Uninstall Helper Tool"){
@@ -62,6 +63,7 @@ struct AdvancedView: View {
                             }
                         })
                     }
+                    Text("The legacy helper tool has been deprecated as of this release and this helper tool is no longer being used to switch power modes.")
                 } label: {
                     Text("Legacy Helper Tool")
                 }
