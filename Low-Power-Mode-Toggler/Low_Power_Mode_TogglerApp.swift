@@ -27,7 +27,7 @@ struct Low_Power_Mode_TogglerApp: App {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var authorization: Authorization?
@@ -53,13 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TelemetryManager.initialize(with: telementryConfiguration)
         TelemetryManager.send("appLaunched")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateShortcutStatus), name: NSNotification.Name("updateShortcutStatus"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showInstallWindow), name: NSNotification.Name("openInstallWindow"), object: nil)
         
         installWindow.title = "Setup Low Power Mode Toggler"
-        installWindow.level = NSWindow.Level.normal + 1
         installWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
         installWindow.standardWindowButton(.zoomButton)?.isEnabled = false
+        installWindow.level = NSWindow.Level.normal + 1
+        installWindow.delegate = self
         
         if !isShortcutInstalled() {
             showInstallWindow()
@@ -179,7 +179,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
         }
-        NSApp.windows.last?.level = NSWindow.Level.normal + 1
         NSApp.windows.last?.center()
         NSApp.windows.last?.orderFrontRegardless()
     }
@@ -194,13 +193,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApplication.shared.terminate(self)
     }
     
-    @objc public func updateShortcutStatus() {
-        shortcutInstalled = isShortcutInstalled()
-        menuItem.isEnabled = shortcutInstalled
-    }
-    
     @objc public func showInstallWindow() {
         installWindow.makeKeyAndOrderFront(self)
+    }
+    
+    func windowWillClose(_ notification: Notification) {
+        if (notification.object as! NSWindow).title == "Setup Low Power Mode Toggler" {
+            shortcutInstalled = isShortcutInstalled()
+            menuItem.isEnabled = shortcutInstalled
+        }
     }
 }
 

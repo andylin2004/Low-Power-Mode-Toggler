@@ -20,15 +20,13 @@ struct InstallView: View {
                 }
             }
             Text("2. Click on the Add Shortcut button")
-            Text("\nThe shortcut will ask for admin access when the toggler is used the first time.")
+            Text("3. Go back to this window and close this window or press Done.")
+            Text("\nThe shortcut will ask for admin access when the toggler is used the first time.\nThe helper tool is no longer being used and it should be uninstalled.")
             Button("Done"){
                 NSApp.keyWindow?.close()
             }
         }
-        .frame(width: 400, height: 160)
-        .onDisappear{
-            NotificationCenter.default.post(name: NSNotification.Name("updateShortcutStatus"), object: nil)
-        }
+        .frame(width: 400, height: 190)
     }
 }
 
