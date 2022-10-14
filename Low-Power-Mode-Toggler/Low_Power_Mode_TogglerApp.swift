@@ -50,15 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TelemetryManager.initialize(with: telementryConfiguration)
         TelemetryManager.send("appLaunched")
         
-        if !checkHelperTool(){
-            do{
-                try LaunchdManager.authorizeAndBless(message: "This helper tool will be used to connect to this app to turn Low Power Mode on and off.")
-            } catch AuthorizationError.canceled {
-            } catch {
-                print(error)
-            }
-        }
-        
         UNUserNotificationCenter.current().delegate = self
         
         notifCenter.requestAuthorization(options: [.alert, .badge], completionHandler: { granted, error in
