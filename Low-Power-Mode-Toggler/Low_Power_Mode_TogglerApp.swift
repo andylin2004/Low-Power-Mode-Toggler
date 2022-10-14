@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         })
         
-        let view = NSHostingView(rootView: ContentView(xpcClient: xpcClient, authorization: authorization))
+        let view = NSHostingView(rootView: ContentView())
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)

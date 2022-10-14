@@ -26,21 +26,22 @@ struct ContentView: View {
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPowerModeEnabled){ isLowPowerEnabled in
-            let process = Process()
-            process.executableURL = URL("/usr/bin/shortcuts")
-            if isLowPowerEnabled {
-                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "1", ofType: "txt")!.description]
-                
-            } else {
-                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "0", ofType: "txt")!.description]
-            }
-            process.qualityOfService = .userInteractive
-            let stdout = Pipe()
-            process.standardOutput = stdout
-            let stderr = Pipe()
-            process.standardError = stderr
-            process.launch()
-            process.waitUntilExit()
+            print(Bundle.main.path(forResource: "1", ofType: "txt")!.description)
+//            let process = Process()
+//            process.executableURL = URL("/usr/bin/shortcuts")
+//            if isLowPowerEnabled {
+//                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "1", ofType: "txt")!.description]
+//
+//            } else {
+//                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "0", ofType: "txt")!.description]
+//            }
+//            process.qualityOfService = .userInteractive
+//            let stdout = Pipe()
+//            process.standardOutput = stdout
+//            let stderr = Pipe()
+//            process.standardError = stderr
+//            process.launch()
+//            process.waitUntilExit()
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled

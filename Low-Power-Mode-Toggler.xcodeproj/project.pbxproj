@@ -102,6 +102,9 @@
 		429B9915285E584100CDF739 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		42A1E1B328660FBD009752E2 /* com.andylin.Low-Power-Mode-Toggler.helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "com.andylin.Low-Power-Mode-Toggler.helper.entitlements"; sourceTree = "<group>"; };
 		42E5EBFA28F8B3250018003F /* MacModelID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacModelID.swift; sourceTree = "<group>"; };
+		42EDB84A28F91B7A004BFC7E /* 2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
+		42EDB84B28F91B7A004BFC7E /* 0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 0.txt; sourceTree = "<group>"; };
+		42EDB84C28F91B7A004BFC7E /* 1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
 		42F8E9CC286F403900C02A78 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		42F8E9CE2870852A00C02A78 /* Uninstall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uninstall.swift; sourceTree = "<group>"; };
 		42F8E9D028711FE200C02A78 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
@@ -204,12 +207,23 @@
 			path = BuildScripts;
 			sourceTree = "<group>";
 		};
+		42EDB84928F91B7A004BFC7E /* InputFiles */ = {
+			isa = PBXGroup;
+			children = (
+				42EDB84A28F91B7A004BFC7E /* 2.txt */,
+				42EDB84B28F91B7A004BFC7E /* 0.txt */,
+				42EDB84C28F91B7A004BFC7E /* 1.txt */,
+			);
+			path = InputFiles;
+			sourceTree = "<group>";
+		};
 		42FD444F285AAC4B0041CA4A = {
 			isa = PBXGroup;
 			children = (
 				42F8E9DE28733B0500C02A78 /* Acknowledgements.plist */,
 				42A1E1B328660FBD009752E2 /* com.andylin.Low-Power-Mode-Toggler.helper.entitlements */,
 				429B9914285E580F00CDF739 /* Config.xcconfig */,
+				42EDB84928F91B7A004BFC7E /* InputFiles */,
 				429B990C285E4BA300CDF739 /* BuildScripts */,
 				429B9907285E337E00CDF739 /* Shared */,
 				42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
