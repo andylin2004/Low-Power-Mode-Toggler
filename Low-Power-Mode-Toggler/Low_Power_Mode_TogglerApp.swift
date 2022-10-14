@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TelemetryManager.initialize(with: telementryConfiguration)
         TelemetryManager.send("appLaunched")
         
-        if true {
+        if !isShortcutInstalled() {
             let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
             window.title = "Setup Toggler"
             window.makeKeyAndOrderFront(self)
