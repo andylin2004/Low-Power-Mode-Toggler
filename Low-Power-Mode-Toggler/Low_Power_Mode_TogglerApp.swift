@@ -45,13 +45,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let notifId = "lowPoweModeNotif"
     let internalFinder = InternalFinder();
     let telementryConfiguration = TelemetryManagerConfiguration(appID: Bundle.main.infoDictionary?["TELEMETRY_DECK_API_KEY"] as! String)
+    var shortcutInstalled = isShortcutInstalled()
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         TelemetryManager.initialize(with: telementryConfiguration)
         TelemetryManager.send("appLaunched")
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateShortcutStatus), name: NSNotification.Name("updateShortcutStatus"), object: nil)
+        
         if !isShortcutInstalled() {
-            let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
+            let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView(shortcutInstalled: shortcutInstalled)))
             window.title = "Setup Toggler"
             window.makeKeyAndOrderFront(self)
         }
@@ -73,10 +76,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        if #available(macOS 13.0, *) {
+        if #available(macOS 14.0, *) {
             menuItem.view = view
         } else {
             menuItem.state = isLowPowerEnabled ? .on : .off
+            menuItem.isEnabled = shortcutInstalled
             menuItem.title = "Low Power Mode"
             menuItem.action = #selector(togglePowerModeSelector(_:))
         }
@@ -91,6 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(aboutButton)
         menu.addItem(quitButton)
         statusItem.menu = menu
+        statusItem.menu?.autoenablesItems = false
         
         aboutWindow.title = ""
         aboutWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
@@ -150,15 +155,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func changePowerMode(){
         isLowPowerEnabled.toggle()
-        do{
-            authorization = try Authorization()
-            let msg = LowPowerModeUpdate(lowPowerEnabled: isLowPowerEnabled, authorization: authorization!)
-            xpcClient.sendMessage(msg, to: Constants.changePowerMode, onCompletion: {_ in
-            })
-        }catch{
-            print(error)
-            return
-        }
+        toggleShortcut(enable: isLowPowerEnabled)
     }
     
     @objc public func togglePowerModeSelector(_: AnyObject){
@@ -189,6 +186,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc public func quitApp(_: AnyObject){
         NSApplication.shared.terminate(self)
+    }
+    
+    @objc public func updateShortcutStatus() {
+        shortcutInstalled = isShortcutInstalled()
+        menuItem.isEnabled = shortcutInstalled
     }
 }
 

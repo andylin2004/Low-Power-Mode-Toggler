@@ -10,6 +10,7 @@ import SecureXPC
 
 struct ContentView: View {
     @State var lowPowerModeEnabled = false
+    @State var shortcutInstalled = false
     
     var body: some View {
         VStack{
@@ -19,31 +20,19 @@ struct ContentView: View {
                 Spacer()
                 Toggle("", isOn: $lowPowerModeEnabled)
                     .toggleStyle(.switch)
-                    .disabled(!lowPowerModeSupported() || !isShortcutInstalled())
+                    .disabled(!lowPowerModeSupported() || !shortcutInstalled)
             }
             Divider()
         }
         .padding(.horizontal, 15)
         .onChange(of: lowPowerModeEnabled){ isLowPowerEnabled in
-            let process = Process()
-            process.executableURL = URL("/usr/bin/shortcuts")
-            if isLowPowerEnabled {
-                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "1", ofType: "txt")!.description]
-
-            } else {
-                process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: "0", ofType: "txt")!.description]
+            if isShortcutInstalled() {
+                
             }
-            process.qualityOfService = .userInteractive
-            let stdout = Pipe()
-            process.standardOutput = stdout
-            let stderr = Pipe()
-            process.standardError = stderr
-            process.launch()
-            process.waitUntilExit()
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
-            
+            shortcutInstalled = isShortcutInstalled()
         }
     }
 }
