@@ -22,6 +22,7 @@ struct ContentView: View {
                 Spacer()
                 Toggle("", isOn: $lowPowerModeEnabled)
                     .toggleStyle(.switch)
+                    .disabled(!lowPowerModeSupported())
             }
             Divider()
         }
@@ -39,12 +40,6 @@ struct ContentView: View {
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
-            do {
-                try print(lowPowerModeSupported())
-            } catch {
-                
-            }
-            
         }
     }
 }

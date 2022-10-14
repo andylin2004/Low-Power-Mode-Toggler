@@ -20,9 +20,8 @@ func getModelIdentifier() -> String? {
     return modelIdentifier
 }
 
-func lowPowerModeSupported() throws -> Bool {
+func lowPowerModeSupported() -> Bool {
     if let identifier = getModelIdentifier() {
-//        identifier
         let range = NSRange(identifier.startIndex..<identifier.endIndex, in: identifier)
         
         let capturePattern = #"(?<model>[A-Za-z]+)"# + #"(?<majorNumber>\d+)"# + "," + #"(?<minorNumber>\d+)"#
@@ -32,7 +31,7 @@ func lowPowerModeSupported() throws -> Bool {
         let matches = regex.matches(in: identifier, range: range)
         
         guard let match = matches.first else {
-            throw NSError(domain: "", code: 0)
+            return false
         }
         
         var captures: [String: String] = [:]
