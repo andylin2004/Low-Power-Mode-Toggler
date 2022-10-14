@@ -25,7 +25,7 @@ struct InstallView: View {
                 NSApp.keyWindow?.close()
             }
         }
-        .frame(width: 400, height: 130)
+        .frame(width: 400, height: 160)
         .onDisappear{
             NotificationCenter.default.post(name: NSNotification.Name("updateShortcutStatus"), object: nil)
         }

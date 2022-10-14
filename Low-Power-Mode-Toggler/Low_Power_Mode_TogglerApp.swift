@@ -45,6 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let notifId = "lowPoweModeNotif"
     let internalFinder = InternalFinder();
     let telementryConfiguration = TelemetryManagerConfiguration(appID: Bundle.main.infoDictionary?["TELEMETRY_DECK_API_KEY"] as! String)
+    let installWindow = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
+    
     var shortcutInstalled = isShortcutInstalled()
     
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -52,11 +54,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TelemetryManager.send("appLaunched")
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateShortcutStatus), name: NSNotification.Name("updateShortcutStatus"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showInstallWindow), name: NSNotification.Name("openInstallWindow"), object: nil)
+        
+        installWindow.title = "Setup Low Power Mode Toggler"
+        installWindow.level = NSWindow.Level.normal + 1
+        installWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
+        installWindow.standardWindowButton(.zoomButton)?.isEnabled = false
         
         if !isShortcutInstalled() {
-            let window = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
-            window.title = "Setup Toggler"
-            window.makeKeyAndOrderFront(self)
+            showInstallWindow()
         }
         
         UNUserNotificationCenter.current().delegate = self
@@ -191,6 +197,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc public func updateShortcutStatus() {
         shortcutInstalled = isShortcutInstalled()
         menuItem.isEnabled = shortcutInstalled
+    }
+    
+    @objc public func showInstallWindow() {
+        installWindow.makeKeyAndOrderFront(self)
     }
 }
 
