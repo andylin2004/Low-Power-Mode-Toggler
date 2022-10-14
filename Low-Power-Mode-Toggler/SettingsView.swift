@@ -62,24 +62,6 @@ struct AdvancedView: View {
                             }
                         })
                     }
-                    if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
-                        let bundlePath = URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL
-                        if updateAvailible{
-                            Button("Update Helper Tool"){
-                                self.xpcClient.sendMessage(bundlePath, to: Constants.update) { response in
-                                    if case .failure(let error) = response {
-                                        switch error {
-                                        case .connectionInterrupted:
-                                            updateAvailible = false
-                                            // It's expected the connection is interrupted as part of uninstalling the client
-                                        default:
-                                            print(error)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 } label: {
                     Text("Legacy Helper Tool")
                 }
@@ -89,7 +71,6 @@ struct AdvancedView: View {
             helperToolInstalled = checkHelperTool()
             if let helperToolLabel = (Bundle.main.infoDictionary?["SMPrivilegedExecutables"] as? [String : Any])?.first?.key {
                 let bundlePath = URL(fileURLWithPath: "Contents/Library/LaunchServices/\(helperToolLabel)", relativeTo: Bundle.main.bundleURL).absoluteURL
-                updateAvailible = try! HelperToolInfoPropertyList(from: bundlePath).version > HelperToolInfoPropertyList(from: URL(fileURLWithPath: Constants.installedHelperToolLocation)).version
             }
         }
     }
