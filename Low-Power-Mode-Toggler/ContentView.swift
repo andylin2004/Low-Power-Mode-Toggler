@@ -7,11 +7,9 @@
 
 import SwiftUI
 import SecureXPC
-import Blessed
 
 struct ContentView: View {
     @State var lowPowerModeEnabled = false
-    @State var meme = ""
     
     var body: some View {
         VStack{
@@ -21,7 +19,7 @@ struct ContentView: View {
                 Spacer()
                 Toggle("", isOn: $lowPowerModeEnabled)
                     .toggleStyle(.switch)
-                    .disabled(!lowPowerModeSupported())
+                    .disabled(!lowPowerModeSupported() || !isShortcutInstalled())
             }
             Divider()
         }
@@ -45,6 +43,7 @@ struct ContentView: View {
         }
         .onAppear{
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+            
         }
     }
 }
