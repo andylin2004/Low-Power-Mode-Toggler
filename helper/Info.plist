@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BuildHash</key>
-	<string>0318c9d3c9883433b95bdcae17ee3bcf70e264e3efd0c065e3befe53fb035327</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.23</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.andylin.Low-Power-Mode-Toggler.helper</string>
+	<key>SMAuthorizedClients</key>
+	<array>
+		<string>anchor apple generic and identifier "com.andylin.Low-Power-Mode-Toggler" and info[CFBundleVersion] &gt;= "1.1.0" and certificate leaf[subject.OU] = "QW3PB89WQ9"</string>
+	</array>
 </dict>
 </plist>

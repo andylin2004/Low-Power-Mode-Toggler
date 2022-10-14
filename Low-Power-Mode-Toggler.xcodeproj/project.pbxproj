@@ -10,20 +10,11 @@
 		42094D33286DF68D00E620CA /* TelemetryClient in Frameworks */ = {isa = PBXBuildFile; productRef = 42094D32286DF68D00E620CA /* TelemetryClient */; };
 		42094D37286E01E300E620CA /* AboutThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42094D36286E01DA00E620CA /* AboutThisAppView.swift */; };
 		42365903285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
-		42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */; };
 		42365907285E94F1003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365906285E94F1003B8D31 /* EmbeddedPropertyList */; };
-		42365909285E9509003B8D31 /* EmbeddedPropertyList in Frameworks */ = {isa = PBXBuildFile; productRef = 42365908285E9509003B8D31 /* EmbeddedPropertyList */; };
 		4236590B285E9523003B8D31 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */; };
-		4236590C285E953F003B8D31 /* HelperToolInfoPropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */; };
 		4236AE982860EF5C00D927C8 /* InstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236AE972860EF5C00D927C8 /* InstallView.swift */; };
-		429B98F4285E258F00CDF739 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B98F3285E258F00CDF739 /* main.swift */; };
 		429B98FA285E263700CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98F9285E263700CDF739 /* Blessed */; };
 		429B98FD285E267000CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FC285E267000CDF739 /* SecureXPC */; };
-		429B9900285E26B700CDF739 /* SecureXPC in Frameworks */ = {isa = PBXBuildFile; productRef = 429B98FF285E26B700CDF739 /* SecureXPC */; };
-		429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9901285E28C400CDF739 /* LowPowerController.swift */; };
-		429B9904285E29F600CDF739 /* Blessed in Frameworks */ = {isa = PBXBuildFile; productRef = 429B9903285E29F600CDF739 /* Blessed */; };
-		429B9906285E32E100CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		429B9909285E338C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		42E5EBFB28F8B3250018003F /* MacModelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5EBFA28F8B3250018003F /* MacModelID.swift */; };
 		42EDB84D28F91C93004BFC7E /* 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 42EDB84A28F91B7A004BFC7E /* 2.txt */; };
@@ -32,10 +23,7 @@
 		42EDB85128F98DDF004BFC7E /* ShortcutInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EDB85028F98DDF004BFC7E /* ShortcutInteraction.swift */; };
 		42F8E9CA286F3B3200C02A78 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */; };
 		42F8E9CD286F403900C02A78 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CC286F403900C02A78 /* SettingsView.swift */; };
-		42F8E9CF2870966600C02A78 /* Uninstall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CE2870852A00C02A78 /* Uninstall.swift */; };
 		42F8E9D32871200600C02A78 /* CodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9D22871200600C02A78 /* CodeInfo.swift */; };
-		42F8E9D42871200C00C02A78 /* CodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9D22871200600C02A78 /* CodeInfo.swift */; };
-		42F8E9D52871201100C02A78 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9D028711FE200C02A78 /* Updater.swift */; };
 		42F8E9DF28733B0500C02A78 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42F8E9DE28733B0500C02A78 /* Acknowledgements.plist */; };
 		42F8E9E328733DCD00C02A78 /* AckGen in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9E228733DCD00C02A78 /* AckGen */; };
 		42F8E9E528733DCD00C02A78 /* AckGenUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9E428733DCD00C02A78 /* AckGenUI */; };
@@ -67,41 +55,14 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		429B98EF285E258F00CDF739 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		429B9905285E32BD00CDF739 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Contents/Library/LaunchServices;
-			dstSubfolderSpec = 1;
-			files = (
-				429B9906285E32E100CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		42094D34286DFA2900E620CA /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
 		42094D36286E01DA00E620CA /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
 		42365902285E94D0003B8D31 /* HelperToolLaunchdPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolLaunchdPropertyList.swift; sourceTree = "<group>"; };
 		4236590A285E9523003B8D31 /* HelperToolInfoPropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolInfoPropertyList.swift; sourceTree = "<group>"; };
 		4236AE972860EF5C00D927C8 /* InstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallView.swift; sourceTree = "<group>"; };
-		429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "com.andylin.Low-Power-Mode-Toggler.helper"; sourceTree = BUILT_PRODUCTS_DIR; };
-		429B98F3285E258F00CDF739 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		429B9901285E28C400CDF739 /* LowPowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerController.swift; sourceTree = "<group>"; };
 		429B9908285E338C00CDF739 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		429B990B285E470300CDF739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		429B990D285E4BB500CDF739 /* PropertyListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListModifier.swift; sourceTree = "<group>"; };
-		429B9913285E57F400CDF739 /* HelperToolConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HelperToolConfig.xcconfig; sourceTree = "<group>"; };
 		429B9914285E580F00CDF739 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		429B9915285E584100CDF739 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		42A1E1B328660FBD009752E2 /* com.andylin.Low-Power-Mode-Toggler.helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "com.andylin.Low-Power-Mode-Toggler.helper.entitlements"; sourceTree = "<group>"; };
@@ -111,8 +72,6 @@
 		42EDB84C28F91B7A004BFC7E /* 1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
 		42EDB85028F98DDF004BFC7E /* ShortcutInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutInteraction.swift; sourceTree = "<group>"; };
 		42F8E9CC286F403900C02A78 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		42F8E9CE2870852A00C02A78 /* Uninstall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uninstall.swift; sourceTree = "<group>"; };
-		42F8E9D028711FE200C02A78 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		42F8E9D22871200600C02A78 /* CodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInfo.swift; sourceTree = "<group>"; };
 		42F8E9DE28733B0500C02A78 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		42FD4458285AAC4B0041CA4A /* Low Power Mode Toggler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Low Power Mode Toggler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,16 +91,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		429B98EE285E258F00CDF739 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				429B9900285E26B700CDF739 /* SecureXPC in Frameworks */,
-				429B9904285E29F600CDF739 /* Blessed in Frameworks */,
-				42365909285E9509003B8D31 /* EmbeddedPropertyList in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42FD4455285AAC4B0041CA4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,19 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		429B98F2285E258F00CDF739 /* helper */ = {
-			isa = PBXGroup;
-			children = (
-				429B98F3285E258F00CDF739 /* main.swift */,
-				429B9901285E28C400CDF739 /* LowPowerController.swift */,
-				429B990B285E470300CDF739 /* Info.plist */,
-				429B9913285E57F400CDF739 /* HelperToolConfig.xcconfig */,
-				42F8E9CE2870852A00C02A78 /* Uninstall.swift */,
-				42F8E9D028711FE200C02A78 /* Updater.swift */,
-			);
-			path = helper;
-			sourceTree = "<group>";
-		};
 		429B98FE285E26B700CDF739 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,7 +170,6 @@
 				42FD445A285AAC4B0041CA4A /* Low-Power-Mode-Toggler */,
 				42FD446C285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
 				42FD4476285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
-				429B98F2285E258F00CDF739 /* helper */,
 				42FD4459285AAC4B0041CA4A /* Products */,
 				429B98FE285E26B700CDF739 /* Frameworks */,
 			);
@@ -246,7 +181,6 @@
 				42FD4458285AAC4B0041CA4A /* Low Power Mode Toggler.app */,
 				42FD4469285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests.xctest */,
 				42FD4473285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests.xctest */,
-				429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,42 +243,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		429B98F0285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "com.andylin.Low-Power-Mode-Toggler.helper" */;
-			buildPhases = (
-				429B9910285E566A00CDF739 /* ShellScript */,
-				429B98ED285E258F00CDF739 /* Sources */,
-				429B98EE285E258F00CDF739 /* Frameworks */,
-				429B98EF285E258F00CDF739 /* CopyFiles */,
-				429B9911285E570800CDF739 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "com.andylin.Low-Power-Mode-Toggler.helper";
-			packageProductDependencies = (
-				429B98FF285E26B700CDF739 /* SecureXPC */,
-				429B9903285E29F600CDF739 /* Blessed */,
-				42365908285E9509003B8D31 /* EmbeddedPropertyList */,
-			);
-			productName = helper;
-			productReference = 429B98F1285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */;
-			productType = "com.apple.product-type.tool";
-		};
 		42FD4457285AAC4B0041CA4A /* Low Power Mode Toggler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42FD447D285AAC4D0041CA4A /* Build configuration list for PBXNativeTarget "Low Power Mode Toggler" */;
 			buildPhases = (
-				429B990F285E4BCA00CDF739 /* ShellScript */,
 				42F8E9DD28733A0F00C02A78 /* Build Acknowledgements */,
 				42FD4454285AAC4B0041CA4A /* Sources */,
 				42FD4455285AAC4B0041CA4A /* Frameworks */,
-				429B9905285E32BD00CDF739 /* CopyFiles */,
 				42FD4456285AAC4B0041CA4A /* Resources */,
 				42F8E9CB286F3B6C00C02A78 /* Copy “Launch at Login Helper” */,
-				429B9912285E572400CDF739 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -410,9 +317,6 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					429B98F0285E258F00CDF739 = {
-						CreatedOnToolsVersion = 14.0;
-					};
 					42FD4457285AAC4B0041CA4A = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -450,7 +354,6 @@
 				42FD4457285AAC4B0041CA4A /* Low Power Mode Toggler */,
 				42FD4468285AAC4D0041CA4A /* Low-Power-Mode-TogglerTests */,
 				42FD4472285AAC4D0041CA4A /* Low-Power-Mode-TogglerUITests */,
-				429B98F0285E258F00CDF739 /* com.andylin.Low-Power-Mode-Toggler.helper */,
 			);
 		};
 /* End PBXProject section */
@@ -486,76 +389,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		429B990F285E4BCA00CDF739 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift satisfy-job-bless-requirements\n";
-		};
-		429B9910285E566A00CDF739 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/helper/launchd.plist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift satisfy-job-bless-requirements specify-mach-services auto-increment-version\n\n";
-		};
-		429B9911285E570800CDF739 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift cleanup-job-bless-requirements cleanup-mach-services\n";
-		};
-		429B9912285E572400CDF739 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}\"/BuildScripts/PropertyListModifier.swift cleanup-job-bless-requirements\n";
-		};
 		42F8E9CB286F3B6C00C02A78 /* Copy “Launch at Login Helper” */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -596,21 +429,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		429B98ED285E258F00CDF739 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42F8E9CF2870966600C02A78 /* Uninstall.swift in Sources */,
-				42365904285E94D2003B8D31 /* HelperToolLaunchdPropertyList.swift in Sources */,
-				429B9902285E28C400CDF739 /* LowPowerController.swift in Sources */,
-				429B98F4285E258F00CDF739 /* main.swift in Sources */,
-				4236590C285E953F003B8D31 /* HelperToolInfoPropertyList.swift in Sources */,
-				42F8E9D52871201100C02A78 /* Updater.swift in Sources */,
-				42F8E9D42871200C00C02A78 /* CodeInfo.swift in Sources */,
-				429B9909285E338C00CDF739 /* Constants.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42FD4454285AAC4B0041CA4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,78 +482,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		429B98F6285E258F00CDF739 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
-				APP_VERSION = 1.1.0;
-				CODE_SIGN_ENTITLEMENTS = "com.andylin.Low-Power-Mode-Toggler.helper.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.0;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = QW3PB89WQ9;
-				ENABLE_HARDENED_RUNTIME = YES;
-				HELPER_TOOL_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER).helper";
-				INFOPLIST_FILE = "$(TARGET_DIRECTORY)/Info.plist";
-				LAUNCHDPLIST_FILE = "$(TARGET_DIRECTORY)/launchd.plist";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				OTHER_LDFLAGS = (
-					"-sectcreate",
-					__TEXT,
-					__info_plist,
-					"$(INFOPLIST_FILE)",
-					"-sectcreate",
-					__TEXT,
-					__launchd_plist,
-					"$(LAUNCHDPLIST_FILE)",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SHARED_DIRECTORY = Shared;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGET_DIRECTORY = helper;
-			};
-			name = Debug;
-		};
-		429B98F7285E258F00CDF739 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APP_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler";
-				APP_VERSION = 1.1.0;
-				CODE_SIGN_ENTITLEMENTS = "com.andylin.Low-Power-Mode-Toggler.helper.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.0;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = QW3PB89WQ9;
-				ENABLE_HARDENED_RUNTIME = YES;
-				HELPER_TOOL_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER).helper";
-				INFOPLIST_FILE = "$(TARGET_DIRECTORY)/Info.plist";
-				LAUNCHDPLIST_FILE = "$(TARGET_DIRECTORY)/launchd.plist";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				OTHER_LDFLAGS = (
-					"-sectcreate",
-					__TEXT,
-					__info_plist,
-					"$(INFOPLIST_FILE)",
-					"-sectcreate",
-					__TEXT,
-					__launchd_plist,
-					"$(LAUNCHDPLIST_FILE)",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.Low-Power-Mode-Toggler.helper";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SHARED_DIRECTORY = Shared;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGET_DIRECTORY = helper;
-			};
-			name = Release;
-		};
 		42FD447B285AAC4D0041CA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1002,15 +748,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		429B98F5285E258F00CDF739 /* Build configuration list for PBXNativeTarget "com.andylin.Low-Power-Mode-Toggler.helper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				429B98F6285E258F00CDF739 /* Debug */,
-				429B98F7285E258F00CDF739 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		42FD4453285AAC4B0041CA4A /* Build configuration list for PBXProject "Low-Power-Mode-Toggler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1112,11 +849,6 @@
 			package = 42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;
 			productName = EmbeddedPropertyList;
 		};
-		42365908285E9509003B8D31 /* EmbeddedPropertyList */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42365905285E94F1003B8D31 /* XCRemoteSwiftPackageReference "EmbeddedPropertyList" */;
-			productName = EmbeddedPropertyList;
-		};
 		429B98F9285E263700CDF739 /* Blessed */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */;
@@ -1126,16 +858,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */;
 			productName = SecureXPC;
-		};
-		429B98FF285E26B700CDF739 /* SecureXPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 429B98FB285E267000CDF739 /* XCRemoteSwiftPackageReference "SecureXPC" */;
-			productName = SecureXPC;
-		};
-		429B9903285E29F600CDF739 /* Blessed */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 429B98F8285E263700CDF739 /* XCRemoteSwiftPackageReference "Blessed" */;
-			productName = Blessed;
 		};
 		42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
