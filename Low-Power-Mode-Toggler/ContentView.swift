@@ -29,8 +29,10 @@ struct ContentView: View {
             toggleShortcut(enable: isLowPowerEnabled)
         }
         .onAppear{
+            Task {
+                shortcutInstalled = isShortcutInstalled()
+            }
             lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
-            shortcutInstalled = isShortcutInstalled()
         }
     }
 }
