@@ -26,6 +26,9 @@
 		429B9909285E338C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		429B990A285E3A5C00CDF739 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B9908285E338C00CDF739 /* Constants.swift */; };
 		42E5EBFB28F8B3250018003F /* MacModelID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5EBFA28F8B3250018003F /* MacModelID.swift */; };
+		42EDB84D28F91C93004BFC7E /* 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 42EDB84A28F91B7A004BFC7E /* 2.txt */; };
+		42EDB84E28F91C93004BFC7E /* 0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 42EDB84B28F91B7A004BFC7E /* 0.txt */; };
+		42EDB84F28F91C93004BFC7E /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 42EDB84C28F91B7A004BFC7E /* 1.txt */; };
 		42F8E9CA286F3B3200C02A78 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 42F8E9C9286F3B3200C02A78 /* LaunchAtLogin */; };
 		42F8E9CD286F403900C02A78 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CC286F403900C02A78 /* SettingsView.swift */; };
 		42F8E9CF2870966600C02A78 /* Uninstall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8E9CE2870852A00C02A78 /* Uninstall.swift */; };
@@ -454,6 +457,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42EDB84D28F91C93004BFC7E /* 2.txt in Resources */,
+				42EDB84E28F91C93004BFC7E /* 0.txt in Resources */,
+				42EDB84F28F91C93004BFC7E /* 1.txt in Resources */,
 				42F8E9DF28733B0500C02A78 /* Acknowledgements.plist in Resources */,
 				42FD4463285AAC4D0041CA4A /* Preview Assets.xcassets in Resources */,
 				42FD4460285AAC4D0041CA4A /* Assets.xcassets in Resources */,
