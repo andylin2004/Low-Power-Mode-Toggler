@@ -8,6 +8,10 @@
 import IOKit
 import Foundation
 
+enum RegexErrors: Error {
+    case cannotParse
+}
+
 func getModelIdentifier() -> String? {
     let service = IOServiceGetMatchingService(kIOMainPortDefault,
                                               IOServiceMatching("IOPlatformExpertDevice"))
@@ -20,47 +24,77 @@ func getModelIdentifier() -> String? {
     return modelIdentifier
 }
 
+func regexModelNumber(identifier: String) throws -> [String: String] {
+    let range = NSRange(identifier.startIndex..<identifier.endIndex, in: identifier)
+    
+    let capturePattern = #"(?<model>[A-Za-z]+)"# + #"(?<majorNumber>\d+)"# + "," + #"(?<minorNumber>\d+)"#
+    
+    let regex = try! NSRegularExpression(pattern: capturePattern)
+    
+    let matches = regex.matches(in: identifier, range: range)
+    
+    guard let match = matches.first else {
+        throw RegexErrors.cannotParse
+    }
+    
+    var captures: [String: String] = [:]
+    
+    for property in ["model", "majorNumber", "minorNumber"] {
+        let matchRange = match.range(withName: property)
+        if let substringRange = Range(matchRange, in: identifier) {
+            let capture = String(identifier[substringRange])
+            captures[property] = capture
+        }
+    }
+    
+    return captures
+}
+
 func lowPowerModeSupported() -> Bool {
     if let identifier = getModelIdentifier() {
-        let range = NSRange(identifier.startIndex..<identifier.endIndex, in: identifier)
-        
-        let capturePattern = #"(?<model>[A-Za-z]+)"# + #"(?<majorNumber>\d+)"# + "," + #"(?<minorNumber>\d+)"#
-        
-        let regex = try! NSRegularExpression(pattern: capturePattern)
-        
-        let matches = regex.matches(in: identifier, range: range)
-        
-        guard let match = matches.first else {
-            return false
-        }
-        
-        var captures: [String: String] = [:]
-        
-        for property in ["model", "majorNumber", "minorNumber"] {
-            let matchRange = match.range(withName: property)
-            if let substringRange = Range(matchRange, in: identifier) {
-                let capture = String(identifier[substringRange])
-                captures[property] = capture
-            }
-        }
-        
-        if let majorNumber = Int(captures["majorNumber"] ?? "0") {
-            switch captures["model"]{
-            case "MacBook":
-                return majorNumber >= 9
-            case "MacBookPro":
-                return majorNumber >= 13
-            case "MacBookAir":
-                return majorNumber >= 8
-            case "Mac":
-                if let minorNumber = Int(captures["minorNumber"] ?? "0") {
-                    return majorNumber == 14 && (minorNumber == 2 || minorNumber == 7)
-                }else{
+        do {
+            let captures = try regexModelNumber(identifier: identifier)
+            
+            if let majorNumber = Int(captures["majorNumber"] ?? "0") {
+                switch captures["model"]{
+                case "MacBook":
+                    return majorNumber >= 9
+                case "MacBookPro":
+                    return majorNumber >= 13
+                case "MacBookAir":
+                    return majorNumber >= 8
+                case "Mac":
+                    if let minorNumber = Int(captures["minorNumber"] ?? "0") {
+                        return majorNumber == 14 && (minorNumber == 2 || minorNumber == 7)
+                    }else{
+                        return false
+                    }
+                default:
                     return false
                 }
-            default:
-                return false
             }
+        } catch {
+            return false
+        }
+    }
+    return false
+}
+
+func highPowerModeSupported() -> Bool {
+    if let identifier = getModelIdentifier() {
+        do {
+            let captures = try regexModelNumber(identifier: identifier)
+            
+            if let majorNumber = Int(captures["majorNumber"] ?? "0"), let minorNumber = Int(captures["minorNumber"] ?? "0"){
+                switch captures["model"]{
+                case "MacBookPro":
+                    return majorNumber == 18 && minorNumber == 2
+                default:
+                    return false
+                }
+            }
+        } catch {
+            return false
         }
     }
     return false

@@ -184,6 +184,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         } else {
             NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
         }
+        NSApp.windows.last?.level = NSWindow.Level.normal + 1
         NSApp.windows.last?.center()
         NSApp.windows.last?.orderFrontRegardless()
     }
