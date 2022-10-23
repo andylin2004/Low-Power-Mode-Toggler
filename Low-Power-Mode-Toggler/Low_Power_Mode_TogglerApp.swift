@@ -78,7 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         let view = NSHostingView(rootView: ContentView())
         
-        view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
+        view.frame = NSRect(x: 0, y: 0, width: 250, height: 160)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if #available(macOS 13.0, *) {
             menuItem.view = view

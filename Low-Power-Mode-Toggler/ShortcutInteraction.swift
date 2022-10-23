@@ -37,3 +37,16 @@ func toggleShortcut(enable: Bool) {
     process.launch()
     process.waitUntilExit()
 }
+
+func toggleShortcut(state: Int) {
+    let process = Process()
+    process.executableURL = URL("/usr/bin/shortcuts")
+    process.arguments = ["run", "PowerToggler", "-i", Bundle.main.path(forResource: String(state), ofType: "txt")!.description]
+    process.qualityOfService = .userInteractive
+    let stdout = Pipe()
+    process.standardOutput = stdout
+    let stderr = Pipe()
+    process.standardError = stderr
+    process.launch()
+    process.waitUntilExit()
+}
