@@ -147,7 +147,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                             }
                         }
                     })
-                }
+                } else if internalBattery.charge ?? 0 == 79 && batteryPercentage >= 80 {
+                   self.notifCenter.removeAllDeliveredNotifications()
+               }
             }
             batteryPercentage = internalBattery.charge ?? 0
         }else{
