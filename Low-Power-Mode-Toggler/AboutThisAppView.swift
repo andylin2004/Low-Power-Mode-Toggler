@@ -20,7 +20,7 @@ struct AboutThisAppView: View {
             Text("Low Power Mode Toggler")
                 .bold()
             Text("Version \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)")
-            Text("Copyright © 2022 [Andy Lin](https://andylin2004.github.io). All rights reserved.")
+            Text("Copyright © 2023 [Andy Lin](https://andylin2004.github.io). All rights reserved.")
             Button(action: {
                 showAcks.toggle()
             }){
