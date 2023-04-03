@@ -147,11 +147,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                         }
                     })
                 }
-            }else{
+            } else {
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
                 if internalBattery.charge ?? 0 == 20 && batteryPercentage > 20 {
+                    self.notifCenter.removeAllDeliveredNotifications()
                     notifCenter.getNotificationSettings(completionHandler: {(settings) in
                         if settings.authorizationStatus == .authorized{
                             let request = UNNotificationRequest(identifier: self.askLPMNotifId, content: self.lowPowerModeEnabledNotification, trigger: self.notifTrigger)
