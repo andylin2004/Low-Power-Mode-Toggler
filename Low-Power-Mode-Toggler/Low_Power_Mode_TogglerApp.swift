@@ -129,11 +129,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         if let internalBattery = internalFinder.getInternalBattery(){
             isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
             menuItem.state = isLowPowerEnabled ? .on : .off
-            if ProcessInfo.processInfo.isLowPowerModeEnabled{
-                let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: NSColor.systemYellow]
+            if ProcessInfo.processInfo.isLowPowerModeEnabled {
+                let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), .backgroundColor: NSColor(named: "menuBarBackgroundColor"), .foregroundColor: NSColor(named: "menuBarForegroundColor")]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
                 if internalBattery.charge ?? 0 == 80 && batteryPercentage <= 79 {
+                    changePowerMode()
                     notifCenter.getNotificationSettings(completionHandler: {(settings) in
                         if settings.authorizationStatus == .authorized{
                             let request = UNNotificationRequest(identifier: self.chargedEnoughNotifId, content: self.chargedEnoughNotification, trigger: self.notifTrigger)
@@ -210,7 +211,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NSApp.windows.last?.orderFrontRegardless()
     }
     
-    @objc public func powerSourceUpdate(_: AnyObject){
+    @objc public func powerSourceUpdate(_: AnyObject) {
         DispatchQueue.main.async {
             self.updateBatteryInBar()
         }
@@ -271,5 +272,27 @@ extension Acknowledgement: Hashable {
     
     public static func == (lhs: Acknowledgement, rhs: Acknowledgement) -> Bool {
         return lhs.title == rhs.title
+    }
+}
+
+class RoundedMenuItemView: NSView {
+    override func draw(_ dirtyRect: NSRect) {
+        // Draw the rounded background
+        let cornerRadius: CGFloat = 10
+        let backgroundRect = NSBezierPath(roundedRect: dirtyRect, xRadius: cornerRadius, yRadius: cornerRadius)
+        NSColor.red.setFill()
+        backgroundRect.fill()
+        
+        // Draw the attributed string
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: NSColor.white,
+            .font: NSFont.systemFont(ofSize: 12),
+            .paragraphStyle: paragraphStyle
+        ]
+        let attributedTitle = NSAttributedString(string: "deez", attributes: attributes)
+        let titleRect = NSRect(x: dirtyRect.origin.x + 10, y: dirtyRect.origin.y, width: dirtyRect.size.width - 20, height: dirtyRect.size.height)
+        attributedTitle.draw(in: titleRect)
     }
 }
