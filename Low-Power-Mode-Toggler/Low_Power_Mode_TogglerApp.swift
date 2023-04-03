@@ -126,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: NSColor.systemYellow]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
-                if internalBattery.charge ?? 0 >= 80 && batteryPercentage < 80 {
+                if internalBattery.charge ?? 0 == 80 && batteryPercentage >= 79 {
                     
                 }
             }else{
