@@ -133,18 +133,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: NSColor.systemYellow]
                 let str = NSAttributedString(string: "\(Int(internalBattery.charge ?? 0))%", attributes: attributes)
                 statusItem.button?.attributedTitle = str
-                if internalBattery.charge ?? 0 == 80 && batteryPercentage >= 79 {
-                    let settings = await notifCenter.notificationSettings()
-                    if settings.authorizationStatus == .authorized{
-                        let request = UNNotificationRequest(identifier: self.chargedEnoughNotifId, content: self.chargedEnoughNotification, trigger: self.notifTrigger)
-                        let category = UNNotificationCategory(identifier: "chargedEnough", actions: [], intentIdentifiers: [])
-                        self.notifCenter.setNotificationCategories([category])
-                        self.notifCenter.add(request){(error) in
-                            if let error = error {
-                                print(error)
+                if internalBattery.charge ?? 0 == 80 && batteryPercentage <= 79 {
+                    notifCenter.getNotificationSettings(completionHandler: {(settings) in
+                        if settings.authorizationStatus == .authorized{
+                            let request = UNNotificationRequest(identifier: self.chargedEnoughNotifId, content: self.chargedEnoughNotification, trigger: self.notifTrigger)
+                            let category = UNNotificationCategory(identifier: "chargedEnough", actions: [], intentIdentifiers: [])
+                            self.notifCenter.setNotificationCategories([category])
+                            self.notifCenter.add(request){(error) in
+                                if let error = error {
+                                    print(error)
+                                }
                             }
                         }
-                    }
+                    })
                 }
             }else{
                 let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11)]
@@ -164,7 +165,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                             }
                         }
                     })
-                } else if internalBattery.charge ?? 0 == 80 && batteryPercentage >= 79 {
+                } else if internalBattery.charge ?? 0 == 80 && batteryPercentage <= 79 {
                    self.notifCenter.removeAllDeliveredNotifications()
                }
             }
