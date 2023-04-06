@@ -274,25 +274,3 @@ extension Acknowledgement: Hashable {
         return lhs.title == rhs.title
     }
 }
-
-class RoundedMenuItemView: NSView {
-    override func draw(_ dirtyRect: NSRect) {
-        // Draw the rounded background
-        let cornerRadius: CGFloat = 10
-        let backgroundRect = NSBezierPath(roundedRect: dirtyRect, xRadius: cornerRadius, yRadius: cornerRadius)
-        NSColor.red.setFill()
-        backgroundRect.fill()
-        
-        // Draw the attributed string
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: NSColor.white,
-            .font: NSFont.systemFont(ofSize: 12),
-            .paragraphStyle: paragraphStyle
-        ]
-        let attributedTitle = NSAttributedString(string: "deez", attributes: attributes)
-        let titleRect = NSRect(x: dirtyRect.origin.x + 10, y: dirtyRect.origin.y, width: dirtyRect.size.width - 20, height: dirtyRect.size.height)
-        attributedTitle.draw(in: titleRect)
-    }
-}
