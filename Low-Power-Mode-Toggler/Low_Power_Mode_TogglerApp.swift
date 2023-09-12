@@ -92,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             settingsButton.view = NSHostingView(rootView: SettingsLink {
                 Text("Low Power Mode Toggler Settings")
             }
-            .buttonStyle(MenuButtonStyle()))
+                .buttonStyle(MenuButtonStyle(statusItem: statusItem)))
             settingsButton.view?.frame = NSRect(x: 0, y: 0, width: 250, height: 22)
         } else {
             settingsButton.title = "Low Power Mode Toggler Settings"
@@ -194,8 +194,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     @objc public func showAboutThisApp(_: AnyObject){
+        NSApp.windows.first { window in
+            window.title == "About"
+        }?.close()
         let aboutWindow = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
-        aboutWindow.title = ""
+        aboutWindow.title = "About"
+        aboutWindow.titleVisibility = .hidden
         aboutWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
         aboutWindow.standardWindowButton(.zoomButton)?.isEnabled = false
         aboutWindow.center()
@@ -285,6 +289,8 @@ extension Acknowledgement: Hashable {
 
 struct MenuButtonStyle: ButtonStyle {
     @State var isHovering = false
+    var statusItem: NSStatusItem
+    
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             Spacer()
@@ -312,6 +318,8 @@ struct MenuButtonStyle: ButtonStyle {
                     isHovering = true
                     usleep(75000)
                 }
+                statusItem.menu?.cancelTrackingWithoutAnimation()
+                isHovering = false
             }
         }
         .cornerRadius(5)
