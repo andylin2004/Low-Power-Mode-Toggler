@@ -30,7 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var batteryPercentage = 0.0
-    let aboutWindow = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
     let menu = NSMenu()
     let menuItem = NSMenuItem()
     let settingsButton = NSMenuItem()
@@ -45,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let chargedEnoughNotifId = "chargedEnoughNotif"
     let internalFinder = InternalFinder();
     let telementryConfiguration = TelemetryManagerConfiguration(appID: Bundle.main.infoDictionary?["TELEMETRY_DECK_API_KEY"] as! String)
-    let installWindow = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
+    
     
     var shortcutInstalled = isShortcutInstalled()
     
@@ -54,12 +53,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         TelemetryManager.send("appLaunched")
         
         NotificationCenter.default.addObserver(self, selector: #selector(showInstallWindow), name: NSNotification.Name("openInstallWindow"), object: nil)
-        
-        installWindow.title = "Setup Low Power Mode Toggler"
-        installWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
-        installWindow.standardWindowButton(.zoomButton)?.isEnabled = false
-        installWindow.level = NSWindow.Level.normal + 1
-        installWindow.delegate = self
         
         if !isShortcutInstalled() {
             showInstallWindow()
@@ -95,8 +88,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             menuItem.title = "Low Power Mode"
             menuItem.action = #selector(togglePowerModeSelector(_:))
         }
-        settingsButton.title = "Low Power Mode Toggler Settings"
-        settingsButton.action = #selector(showSettings)
+        if #available(macOS 14, *) {
+            settingsButton.view = NSHostingView(rootView: SettingsLink {
+                Text("Low Power Mode Toggler Settings")
+            }
+            .buttonStyle(MenuButtonStyle()))
+            settingsButton.view?.frame = NSRect(x: 0, y: 0, width: 250, height: 22)
+        } else {
+            settingsButton.title = "Low Power Mode Toggler Settings"
+            settingsButton.action = #selector(showSettings)
+        }
+        
         aboutButton.title = "About Low Power Mode Toggler"
         aboutButton.action = #selector(showAboutThisApp)
         quitButton.title = "Quit"
@@ -107,10 +109,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         menu.addItem(quitButton)
         statusItem.menu = menu
         statusItem.menu?.autoenablesItems = false
-        
-        aboutWindow.title = ""
-        aboutWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
-        aboutWindow.standardWindowButton(.zoomButton)?.isEnabled = false
         
         NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
@@ -196,6 +194,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     @objc public func showAboutThisApp(_: AnyObject){
+        let aboutWindow = NSWindow(contentViewController: NSHostingController(rootView: AboutThisAppView()))
+        aboutWindow.title = ""
+        aboutWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
+        aboutWindow.standardWindowButton(.zoomButton)?.isEnabled = false
         aboutWindow.center()
         aboutWindow.makeKeyAndOrderFront(nil)
     }
@@ -222,6 +224,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     @objc public func showInstallWindow() {
+        let installWindow = NSWindow(contentViewController: NSHostingController(rootView: InstallView()))
+        installWindow.title = "Setup Low Power Mode Toggler"
+        installWindow.standardWindowButton(.miniaturizeButton)?.isEnabled = false
+        installWindow.standardWindowButton(.zoomButton)?.isEnabled = false
+        installWindow.level = NSWindow.Level.normal + 1
+        installWindow.delegate = self
         installWindow.makeKeyAndOrderFront(self)
     }
 }
@@ -272,5 +280,41 @@ extension Acknowledgement: Hashable {
     
     public static func == (lhs: Acknowledgement, rhs: Acknowledgement) -> Bool {
         return lhs.title == rhs.title
+    }
+}
+
+struct MenuButtonStyle: ButtonStyle {
+    @State var isHovering = false
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Spacer()
+                .frame(width: 10)
+            configuration.label
+                .foregroundStyle(isHovering ? .white : .black)
+            Spacer()
+        }
+        .padding(.vertical, 3)
+        .background(
+            withAnimation {
+                isHovering ? Color(red: 0.243, green: 0.573, blue: 0.988) : .clear
+            }
+        )
+        .onHover(perform: { hovering in
+            if !configuration.isPressed {
+                isHovering = hovering
+            }
+        })
+        .onChange(of: configuration.isPressed) { _ in
+            Task {
+                for _ in 0..<2 {
+                    isHovering = false
+                    usleep(75000)
+                    isHovering = true
+                    usleep(75000)
+                }
+            }
+        }
+        .cornerRadius(5)
+        .padding(.horizontal, 5)
     }
 }
