@@ -310,16 +310,21 @@ struct MenuButtonStyle: ButtonStyle {
                 isHovering = hovering
             }
         })
-        .onChange(of: configuration.isPressed) { _ in
-            Task {
-                for _ in 0..<2 {
+        .onChange(of: configuration.isPressed) { pressed in
+            if pressed {
+                Task(priority: .high) {
+                    for _ in 0..<2 {
+                        isHovering = false
+                        usleep(75000)
+                        isHovering = true
+                        usleep(75000)
+                    }
                     isHovering = false
-                    usleep(75000)
-                    isHovering = true
-                    usleep(75000)
+                    
+                    DispatchQueue.main.async {
+                        statusItem.menu?.cancelTracking()
+                    }
                 }
-                statusItem.menu?.cancelTrackingWithoutAnimation()
-                isHovering = false
             }
         }
         .cornerRadius(5)
