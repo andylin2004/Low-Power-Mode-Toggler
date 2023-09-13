@@ -296,7 +296,7 @@ struct MenuButtonStyle: ButtonStyle {
             Spacer()
                 .frame(width: 10)
             configuration.label
-                .foregroundStyle(isHovering ? .white : .black)
+                .foregroundStyle(isHovering ? .white : .primary)
             Spacer()
         }
         .padding(.vertical, 3)
