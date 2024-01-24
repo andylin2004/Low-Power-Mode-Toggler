@@ -1,0 +1,68 @@
+{
+  "pins" : [
+    {
+      "identity" : "ackgen",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MartinP7r/AckGen",
+      "state" : {
+        "revision" : "4cf2501b89f9dd3d74301cc41f9196cdfd8c872f",
+        "version" : "0.1.1"
+      }
+    },
+    {
+      "identity" : "blessed",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/trilemma-dev/Blessed.git",
+      "state" : {
+        "revision" : "50e98c098fcfe076f2a28b91d651ff17b1206626",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "embeddedpropertylist",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/trilemma-dev/EmbeddedPropertyList.git",
+      "state" : {
+        "revision" : "21bd832e28a9a66ecdb7b4c21910bb0487a22fe5",
+        "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "launchatlogin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/LaunchAtLogin",
+      "state" : {
+        "revision" : "e8171b3e38a2816f579f58f3dac1522aa39efe41",
+        "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "required",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/trilemma-dev/Required.git",
+      "state" : {
+        "revision" : "82a4fbd388346ca40b1bbe815014dc45a75d503c",
+        "version" : "0.1.1"
+      }
+    },
+    {
+      "identity" : "securexpc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/trilemma-dev/SecureXPC.git",
+      "state" : {
+        "revision" : "b19860657d5f64c8b535a942bec5ba4d73323a7f",
+        "version" : "0.7.0"
+      }
+    },
+    {
+      "identity" : "swiftclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TelemetryDeck/SwiftClient",
+      "state" : {
+        "revision" : "fb518b5acb02aa6ca41be7018bb1619aaef3dc13",
+        "version" : "1.1.6"
+      }
+    }
+  ],
+  "version" : 2
+}
