@@ -27,7 +27,7 @@ struct Low_Power_Mode_TogglerApp: App {
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
-    private var statusItem: NSStatusItem!
+    var statusItem: NSStatusItem!
     var isLowPowerEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
     var batteryPercentage = 0.0
     let menu = NSMenu()
@@ -76,11 +76,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             }
         })
         
-        let view = NSHostingView(rootView: ContentView())
         
-        view.frame = NSRect(x: 0, y: 0, width: 250, height: 40)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if #available(macOS 13.0, *) {
+            let view = NSHostingView(rootView: ContentView(statusItem: statusItem))
+            
+            view.frame = NSRect(x: 0, y: 0, width: 250, height: 105)
             menuItem.view = view
         } else {
             menuItem.state = isLowPowerEnabled ? .on : .off
@@ -104,9 +105,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         quitButton.title = "Quit"
         quitButton.action = #selector(quitApp(_:))
         menu.addItem(menuItem)
-        menu.addItem(settingsButton)
-        menu.addItem(aboutButton)
-        menu.addItem(quitButton)
+        
+        if #unavailable(macOS 13){
+            menu.addItem(settingsButton)
+            menu.addItem(aboutButton)
+            menu.addItem(quitButton)
+        }
+        
         statusItem.menu = menu
         statusItem.menu?.autoenablesItems = false
         
