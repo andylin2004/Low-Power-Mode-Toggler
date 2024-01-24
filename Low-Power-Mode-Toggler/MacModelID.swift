@@ -65,7 +65,14 @@ func lowPowerModeSupported() -> Bool {
                     return majorNumber >= 8
                 case "Mac":
                     if let minorNumber = Int(captures["minorNumber"] ?? "0") {
-                        return majorNumber == 14 && (minorNumber == 2 || minorNumber == 7 || minorNumber == 5 || minorNumber == 6 || minorNumber == 9 || minorNumber == 10)
+                        switch majorNumber {
+                        case 14:
+                            return (minorNumber == 2 || minorNumber == 7 || minorNumber == 5 || minorNumber == 6 || minorNumber == 9 || minorNumber == 10 || minorNumber == 15)
+                        case 15:
+                            return minorNumber == 3 || minorNumber == 6 || minorNumber == 8 || minorNumber == 10 || minorNumber == 7 || minorNumber == 9 || minorNumber == 11
+                        default:
+                            return false
+                        }
                     }else{
                         return false
                     }
