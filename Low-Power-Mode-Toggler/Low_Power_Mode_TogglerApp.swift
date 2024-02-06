@@ -81,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         if #available(macOS 13.0, *) {
             let view = NSHostingView(rootView: ContentView(statusItem: statusItem))
             
-            view.frame = NSRect(x: 0, y: 0, width: 250, height: 105)
+            view.frame = NSRect(x: 0, y: 0, width: 250, height: 107.5)
             menuItem.view = view
         } else {
             menuItem.state = isLowPowerEnabled ? .on : .off
