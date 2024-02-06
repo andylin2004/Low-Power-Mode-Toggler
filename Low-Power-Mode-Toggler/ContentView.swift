@@ -28,7 +28,7 @@ struct ContentView: View {
             .padding(.bottom, 2.5)
             Divider()
                 .padding(.horizontal, 9)
-                .padding(.bottom, 2.5)
+                .padding(.bottom, 5)
             if #available(macOS 14, *) {
                 SettingsLink {
                     Text("Settings")

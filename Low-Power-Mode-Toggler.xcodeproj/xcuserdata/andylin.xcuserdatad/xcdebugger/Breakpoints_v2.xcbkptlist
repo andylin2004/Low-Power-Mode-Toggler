@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C72D1E83-A724-4BBC-A516-DD5D84DE4F51"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37E4C5C3-ABE3-4EC6-B085-017EBF52647B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Low-Power-Mode-Toggler/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "ControlCenterButtonStyle"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "37E4C5C3-ABE3-4EC6-B085-017EBF52647B - 7793d68e31d0651"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Bool) -&gt; () in Low_Power_Mode_Toggler.RahStyle.makeBody(configuration: SwiftUI.ButtonStyleConfiguration) -&gt; some"
+                  moduleName = "Low Power Mode Toggler"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andylin/Documents/App%20Development/Low-Power-Mode-Toggler/Low-Power-Mode-Toggler/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "37E4C5C3-ABE3-4EC6-B085-017EBF52647B - fc92f76890697e17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.Bool) -&gt; () in Low_Power_Mode_Toggler.RahStyle.makeBody(configuration: SwiftUI.ButtonStyleConfiguration) -&gt; some"
+                  moduleName = "Low Power Mode Toggler"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andylin/Documents/App%20Development/Low-Power-Mode-Toggler/Low-Power-Mode-Toggler/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "37E4C5C3-ABE3-4EC6-B085-017EBF52647B - a08afc83b88c592f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.Bool) -&gt; () in Low_Power_Mode_Toggler.RahStyle.makeBody(configuration: SwiftUI.ButtonStyleConfiguration) -&gt; some"
+                  moduleName = "Low Power Mode Toggler"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andylin/Documents/App%20Development/Low-Power-Mode-Toggler/Low-Power-Mode-Toggler/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
